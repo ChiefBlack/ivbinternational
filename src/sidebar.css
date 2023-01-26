@@ -1,0 +1,41 @@
+.sidebar{
+z-index: 1;
+
+background-color: black;
+color: white;
+height: 100vh;
+position: fixed;
+
+transition: 0.5s;
+white-space: nowrap;
+
+left: 0;
+top: 0;
+}
+.sidebar li{
+    overflow-x: hidden;
+    list-style: none;
+    padding: 8px 8px 8px 32px;
+    align-items:center;
+    display: flex;
+    gap: 1rem;
+    border-bottom: solid rgb(255, 255,250,0.1)1px;
+    color: rgb(133, 145, 133);
+    /* background-color: bisque; */
+    border-radius: 10px;
+    
+ 
+
+}
+.sidebar li i{
+  
+    color: white;
+}
+.sidebar li:hover {
+background-color: black;
+color:white;
+ }
+
+ #homeTop{
+    margin-top: 80px;
+ }

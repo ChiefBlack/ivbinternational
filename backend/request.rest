@@ -1,0 +1,9 @@
+# GET http://localhost:3001/users
+
+# POST http://localhost:3001/login
+
+
+# { "email": "user@example.com"  ,
+#     "password": "helloworld"
+#  }
+ http://localhost:3001/creatures?filter=sharks
