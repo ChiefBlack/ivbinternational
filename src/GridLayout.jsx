@@ -25,7 +25,7 @@ function GridLayout() {
             <input type='date' className='diary'/>
             <h1>   &#128525;</h1>        <h1>   &#128526;</h1>
             <input type='range'  onClick/>
-            <input type='search'/>
+            
               </div>
            </div>
              <div className='footer'>
