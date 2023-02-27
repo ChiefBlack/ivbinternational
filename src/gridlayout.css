@@ -20,9 +20,7 @@
 .content,
 .nav,
 .aside,
-.footer{
-
-   
+.footer{ 
     padding: 20px;
    /* border: cadetblue 1px  dotted; */
 }
@@ -32,10 +30,18 @@
     grid-area: topnav;
     margin: '4em';
     padding: '1em';
-    background-color: rgb(41, 26, 41); 
+    background-color: rgb(221, 209, 221); 
+    justify-items: center;
+    justify-content: flex-end;
   
  
 }
+link{
+    align-items: center;
+    justify-content: flex-end;
+    margin-right: 50px;
+}
+
 .content{
     grid-area: main;
     background-color: rgb(248, 245, 248);

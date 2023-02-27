@@ -5,7 +5,7 @@ import MovieApp from './MovieApp';
 import Sidebar from './Sidebar';
 import GridLayout from './GridLayout';
 import Tabs from './tabs';
-
+import { Route,} from 'react-router-dom';
 const App =() =>{
 const [count, setCount]=  useState(0);
 const [movies,showMovies]=useState([]);
@@ -32,8 +32,17 @@ showMovies(data.Search);
   return (
     
   <div >
+    
+    <GridLayout/>
+    
+    <Route path="/"/>
+    <Route path="/"/>
+    
+
+         
+    
 {/* <Layout/> */}
-<GridLayout/>
+
 
    </div>
   );

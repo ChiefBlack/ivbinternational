@@ -14,27 +14,29 @@ function ProductComponent() {
         return(
                   <div className='card' key={product.id}>
 
-                     
                      <img src={product.image} alt={product.title}
                         style={{width:"100%",height:"150px",fit: "cover"}}
                      />
+                     
+
+                     {/* //Movie site goojara.to */}
                        
                      <div className='wrap'>
                          {product.title}
-                          
+                      </div> 
                          
-                            <p><b>R{product.price}</b></p>
+                            <p className='price'><b>R{product.price}</b></p>
                           
                                  <div className='description'>
                                   {product.category}
           
                                   </div>
-                          {/* <div className='addto card'>
+                          <div className='cardButton'>
                             <button> add to card</button>
-                            <button> add to wishList</button>
-                          </div> */}
+                            <button id='wishList'> add to wishlist</button>
+                          </div>
                    
-                        </div>   
+                         
 
 
 
