@@ -32,8 +32,8 @@ function ProductComponent() {
           
                                   </div>
                           <div className='cardButton'>
-                            <button> add to card</button>
-                            <button id='wishList'> add to wishlist</button>
+                            <button> <i className="fa fa-shopping-cart" style={{color:"green"}}></i>  add to card</button>
+                            <button id='wishList'> <i className="fa fa-heart-o" style={{size:30, color: "white"}}></i> add to wishlist</button>
                           </div>
                    
                          
