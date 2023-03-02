@@ -1,12 +1,12 @@
 .body{
     
     font-size: 16px;
-    height: 100vh;
+    height: auto;
     display: grid;
     grid-template-areas: 
-    'nav topnav topnav'
     'nav main sidebar'
-    'nav bottomNav bottomNav';
+    'nav main sidebar'
+    'nav main  sidebar';
     grid-template-columns: 55px 4fr 1fr;
     grid-template-rows: 80px 1fr 70px;
 }

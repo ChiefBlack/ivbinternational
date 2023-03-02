@@ -9,31 +9,27 @@ function GridLayout() {
 
     return (
        <div className='body'>
-            <div className='header'>
-          <div className='link'>
-              {/* <Link to="/"> shopping</Link> */}
-          </div>
-
-           </div>
+            
           <div className='content'><ProductList/></div>
             <div className='nav'>
                <Sidebar/>
                </div>
-               <div className='aside'>SideBar
+               <div className='aside'>
+                  <h1>chat reply</h1>
  
-               <div>
-            <input type='date' className='diary'/>
-            <h1>   &#128525;</h1>        <h1>   &#128526;</h1>
-            <input type='range'  onClick/>
+               {/* <div>
+                  <input type='date' className='diary'/>
+                  <h1>   &#128525;</h1>        <h1>   &#128526;</h1>
+                  <input type='range'  onClick/>
             
-              </div>
+              </div> */}
            </div>
-             <div className='footer'>
+           {/* <div className='footer'>
           <li>
          <a href="#" className="fa fa-facebook"></a>
          <a href="#" className="fa fa-twitter"></a>
         </li>
-      </div>
+      </div> */}
 
 
        </div> 

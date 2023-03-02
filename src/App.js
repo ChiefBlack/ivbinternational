@@ -5,7 +5,11 @@ import MovieApp from './MovieApp';
 import Sidebar from './Sidebar';
 import GridLayout from './GridLayout';
 import Tabs from './tabs';
-import { Route,} from 'react-router-dom';
+import { BrowserRouter, Route, Router,} from 'react-router-dom';
+import Header from './Container/Header';
+import Profile from './Container/Profile';
+import Contact from './Container/Contact';
+import Project from './Container/Project';
 const App =() =>{
 const [count, setCount]=  useState(0);
 const [movies,showMovies]=useState([]);
@@ -31,20 +35,18 @@ showMovies(data.Search);
 // setCount=()=>"i love yo";
   return (
     
-  <div >
+   
     
-    <GridLayout/>
-    
-    <Route path="/"/>
-    <Route path="/"/>
+    <BrowserRouter>
+     <Header/>
+     <Route path="/"exact component={GridLayout}/>
+      <Route path="/profile" component={Profile}/>
+    <Route path="/contact" component={Contact}/>
+    <Route path="/projects" component={Project}/>
+    </BrowserRouter>
     
 
-         
-    
-{/* <Layout/> */}
 
-
-   </div>
   );
 }
 
