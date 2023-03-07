@@ -1,14 +1,12 @@
-FROM node:lastet
+FROM node:latest
 
-WORKDIR user/app
+WORKDIR backend
 
-COPY *.json ./
+COPY . /backend
 
-RUN npm install
 
-COPY * ./
 
-CMD ["npm", "start"]
+CMD node auth.js
 
 
 

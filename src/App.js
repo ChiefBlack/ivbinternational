@@ -10,6 +10,7 @@ import Header from './Container/Header';
 import Profile from './Container/Profile';
 import Contact from './Container/Contact';
 import Project from './Container/Project';
+import ProductDetails from '../src/Container/ProductDetails';
 const App =() =>{
 const [count, setCount]=  useState(0);
 const [movies,showMovies]=useState([]);
@@ -39,10 +40,11 @@ showMovies(data.Search);
     
     <BrowserRouter>
      <Header/>
-     <Route path="/"exact component={GridLayout}/>
-      <Route path="/profile" component={Profile}/>
-    <Route path="/contact" component={Contact}/>
-    <Route path="/projects" component={Project}/>
+          <Route path="/"exact component={GridLayout}/>
+          <Route path="/profile" component={Profile}/>
+          <Route path="/contact" component={Contact}/>
+          <Route path="/projects" component={Project}/>
+           <Route path="/products/:prductID" component={ProductDetails}/>
     </BrowserRouter>
     
 

@@ -14,17 +14,18 @@ function ProductList() {
     const res = await axios.get('https://fakestoreapi.com/products')
         .catch(err=>console.log("error",err));
 
-     dispatch(setProducts(res.data));   
+         dispatch(setProducts(res.data));   
 };
 
 useEffect(()=>{
    fetchProducts();
+   console.log(products)
 },[]);
 
     return (
         <div className='container'> 
              <ProductComponent/>
-
+{console.log("i have renderred")}
        
         </div>
     )
