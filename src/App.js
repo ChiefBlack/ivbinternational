@@ -11,6 +11,8 @@ import Profile from './Container/Profile';
 import Contact from './Container/Contact';
 import Project from './Container/Project';
 import ProductDetails from '../src/Container/ProductDetails';
+import TodoApp from './Test/TodoApp';
+import TodoList from './Test/TodoList';
 const App =() =>{
 const [count, setCount]=  useState(0);
 const [movies,showMovies]=useState([]);
@@ -40,6 +42,7 @@ showMovies(data.Search);
     
     <BrowserRouter>
      <Header/>
+     {/* <TodoApp/> */}
           <Route path="/"exact component={GridLayout}/>
           <Route path="/profile" component={Profile}/>
           <Route path="/contact" component={Contact}/>
