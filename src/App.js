@@ -13,6 +13,8 @@ import Project from './Container/Project';
 import ProductDetails from '../src/Container/ProductDetails';
 import TodoApp from './Test/TodoApp';
 import TodoList from './Test/TodoList';
+import AppDrawer from './Pages_Mui/Navigation/AppDrawer';
+import PersistentDrawerRight from './Pages_Mui/Navigation/AppNavigation';
 const App =() =>{
 const [count, setCount]=  useState(0);
 const [movies,showMovies]=useState([]);
@@ -41,13 +43,14 @@ showMovies(data.Search);
    
     
     <BrowserRouter>
-     <Header/>
-     {/* <TodoApp/> */}
+    <AppDrawer/>
+      {/* <Header/>
+     <TodoApp/> 
           <Route path="/"exact component={GridLayout}/>
           <Route path="/profile" component={Profile}/>
           <Route path="/contact" component={Contact}/>
           <Route path="/projects" component={Project}/>
-           <Route path="/products/:prductID" component={ProductDetails}/>
+           <Route path="/products/:prductID" component={ProductDetails}/>  */}
     </BrowserRouter>
     
 

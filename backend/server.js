@@ -40,6 +40,25 @@ app.get('/user/:userid', (req, res) => {
 //   }
 // })
 
+function greet(name){
+
+  console.log(`my name is ${name}`);
+  }
+  
+  
+  function greetWasha(greetFn){
+  
+      const name = "Washa"
+      greetFn(name);
+  
+  
+  
+  }
+  
+  greetWasha(greet);
+
+
+
 const person=[{
 firstname:"molapo",
 secondNaMe: 123,
