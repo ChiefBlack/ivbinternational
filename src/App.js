@@ -15,6 +15,22 @@ import TodoApp from './Test/TodoApp';
 import TodoList from './Test/TodoList';
 import AppDrawer from './Pages_Mui/Navigation/AppDrawer';
 import PersistentDrawerRight from './Pages_Mui/Navigation/AppNavigation';
+import { createTheme } from '@mui/system';
+import { ThemeProvider } from 'styled-components';
+import SideBar from './Pages_Mui/SideBar';
+import ImageLogo from './Pages_Mui/ImageLogo';
+
+
+const theme = createTheme({
+  palette: {
+    primary: {
+      main: '#1976d2',
+      contrastText: 'white',
+    },
+  },
+});
+
+
 const App =() =>{
 const [count, setCount]=  useState(0);
 const [movies,showMovies]=useState([]);
@@ -40,19 +56,21 @@ showMovies(data.Search);
 // setCount=()=>"i love yo";
   return (
     
-   
+   <ThemeProvider theme={theme}>
     
     <BrowserRouter>
-    <AppDrawer/>
+    {/* <ImageLogo/> */}
+    <PersistentDrawerRight/>
+    {/* <SideBar/> */}
       {/* <Header/>
-     <TodoApp/> 
-          <Route path="/"exact component={GridLayout}/>
-          <Route path="/profile" component={Profile}/>
-          <Route path="/contact" component={Contact}/>
-          <Route path="/projects" component={Project}/>
-           <Route path="/products/:prductID" component={ProductDetails}/>  */}
+      <TodoApp/>  
+           <Route path="/"exact component={GridLayout}/>
+           <Route path="/profile" component={Profile}/>
+           <Route path="/contact" component={Contact}/>
+           <Route path="/projects" component={Project}/>
+            <Route path="/products/:prductID" component={ProductDetails}/>  */}
     </BrowserRouter>
-    
+    </ThemeProvider>
 
 
   );
