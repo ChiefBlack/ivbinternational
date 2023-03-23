@@ -21,6 +21,9 @@ import MailIcon from '@mui/icons-material/Mail';
 import { Button, ButtonGroup, FormControl, InputLabel, MenuItem, Select } from '@mui/material';
 import HoverButton from '../HoverButton';
 import SideBar from '../SideBar';
+import Card from '../Card';
+import { Container } from '../Container';
+import content from '../content';
 
 const drawerWidth = 240;
 
@@ -125,6 +128,11 @@ export default function PersistentDrawerRight() {
         <DrawerHeader />
     
         <Typography paragraph>
+        <Container>
+          {content.map((item, index) => (
+            <Card key={index} item={item} />
+          ))}
+        </Container>
           
           Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
           tempor incididunt ut labore et dolore magna aliqua. Rhoncus dolor purus non
