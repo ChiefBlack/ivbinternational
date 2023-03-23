@@ -64,6 +64,7 @@ const App = () => {
 export default App;
 
 
+
 {
   /* <div className='movieApp'>
 <h1> MovieLand</h1>

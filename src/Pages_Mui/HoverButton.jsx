@@ -57,7 +57,7 @@ function HoverButton() {
           color: "white",
         }}
       >
-        <Button>About us</Button>
+        About us
       </AboutButton>
 
       <ApplyButton
@@ -75,7 +75,7 @@ function HoverButton() {
           color: "white",
         }}
       >
-        Campaighn
+        <Button> Campaign</Button>
       </CampaighnButton>
       <ContactButton
         sx={{

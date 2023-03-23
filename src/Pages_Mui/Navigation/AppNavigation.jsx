@@ -31,7 +31,7 @@ import SideBar from "../SideBar";
 import Card from "../Card";
 import { Container } from "../Container";
 import content from "../content";
-
+import logoIBV from '../images/logoIBV.png';
 const drawerWidth = 240;
 
 const Main = styled("main", { shouldForwardProp: (prop) => prop !== "open" })(
@@ -57,7 +57,7 @@ const AppBar = styled(MuiAppBar, {
   shouldForwardProp: (prop) => prop !== "open",
 })(({ theme, open }) => ({
   color: "black",
-  backgroundColor: "#EDF6F9",
+  backgroundColor: "white",
 
   transition: theme.transitions.create(["margin", "width"], {
     easing: theme.transitions.easing.sharp,
@@ -108,7 +108,7 @@ export default function PersistentDrawerRight() {
       <AppBar position="fixed" open={open}>
         <Toolbar>
           <Typography variant="h6" noWrap sx={{ flexGrow: 1 }} component="div">
-            Companys LOGO
+           <img src={logoIBV } alt="logo"style={{height:"90px",objectFit:"cover"}}/>
           </Typography>
           {/* code header Hear */}
           <ButtonGroup

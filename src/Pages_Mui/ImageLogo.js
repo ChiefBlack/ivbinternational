@@ -8,7 +8,7 @@ function ImageLogo() {
     <AppBar position="static">
       <Toolbar>
         <img
-          src={"../images/ivbLogo.png"}
+          src={"./images/logoIBV.png"}
           alt="Company Logo"
           style={{ marginRight: 16, height: 32 }}
         />
