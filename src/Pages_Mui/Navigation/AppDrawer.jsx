@@ -1,10 +1,7 @@
-import React from 'react'
+import React from "react";
 
 function AppDrawer() {
-  return (
-    <>
-    </>
-  )
+  return <></>;
 }
 
-export default AppDrawer
+export default AppDrawer;

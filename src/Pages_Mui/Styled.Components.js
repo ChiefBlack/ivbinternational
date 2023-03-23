@@ -1,5 +1,4 @@
-import { styled } from "styled-components"
-
+import { styled } from "styled-components";
 
 export const StyledButton = styled.div`
      background-color:"blue",
@@ -14,6 +13,3 @@ export const StyledButton = styled.div`
 
 
 `;
-
-
-
