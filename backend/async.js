@@ -1,9 +1,5 @@
-function sleep(millisecods){
-    console.log(millisecods);
-    console.log("hello word")
-        
-    }
-    //a
-   
-
-
+function sleep(millisecods) {
+  console.log(millisecods);
+  console.log("hello word");
+}
+//a

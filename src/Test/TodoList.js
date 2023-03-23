@@ -1,20 +1,20 @@
-import React, { useState } from 'react';
+import React, { useState } from "react";
 
 function TodoList() {
   const [todos, setTodos] = useState([]);
-  const [inputValue, setInputValue] = useState('');
+  const [inputValue, setInputValue] = useState("");
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    if (inputValue !== '') {
+    if (inputValue !== "") {
       setTodos([...todos, inputValue]);
-      setInputValue('');
+      setInputValue("");
     }
   };
 
   const handleDelete = (index) => {
-    const newTodos = todos.filter((todo,i)=>i !==index);
-    
+    const newTodos = todos.filter((todo, i) => i !== index);
+
     setTodos(newTodos);
   };
 

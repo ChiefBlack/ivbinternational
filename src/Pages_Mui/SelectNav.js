@@ -1,11 +1,7 @@
-import React from 'react'
+import React from "react";
 
 function SelectNav() {
-    return (
-       <>
-       
-       </> 
-    )
+  return <></>;
 }
 
-export default SelectNav
+export default SelectNav;
