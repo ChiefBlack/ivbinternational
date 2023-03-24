@@ -31,7 +31,9 @@ import SideBar from "../SideBar";
 import Card from "../Card";
 import { Container } from "../Container";
 import content from "../content";
-import logoIBV from '../images/logoIBV.png';
+import logoIBV from "../images/logoIBV.png";
+import Footer from "../Footer";
+import ImgMediaCard from "../ImgCardMedia";
 const drawerWidth = 240;
 
 const Main = styled("main", { shouldForwardProp: (prop) => prop !== "open" })(
@@ -108,7 +110,11 @@ export default function PersistentDrawerRight() {
       <AppBar position="fixed" open={open}>
         <Toolbar>
           <Typography variant="h6" noWrap sx={{ flexGrow: 1 }} component="div">
-           <img src={logoIBV } alt="logo"style={{height:"90px",objectFit:"cover"}}/>
+            <img
+              src={logoIBV}
+              alt="logo"
+              style={{ height: "90px", objectFit: "cover" }}
+            />
           </Typography>
           {/* code header Hear */}
           <ButtonGroup
@@ -134,26 +140,17 @@ export default function PersistentDrawerRight() {
         <DrawerHeader />
 
         <Typography paragraph>
-          <Container>
-            {content.map((item, index) => (
-              <Card key={index} item={item} />
-            ))}
-          </Container>
+          {content.map((item, index) => (
+            <Card key={index} item={item} />
+          ))}
           Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
           eiusmod tempor incididunt ut labore et dolore magna aliqua. Rhoncus
-          dolor purus non enim praesent elementum facilisis leo vel. Risus at
-          ultrices mi tempus imperdiet. Semper risus in hendrerit gravida rutrum
-          quisque non tellus. Convallis convallis tellus id interdum velit
-          laoreet id donec ultrices. Odio morbi quis commodo odio aenean sed
-          adipiscing. Amet nisl suscipit adipiscing bibendum est ultricies
-          integer quis. Cursus euismod quis viverra nibh cras. Metus vulputate
-          eu scelerisque felis imperdiet proin fermentum leo. Mauris commodo
-          quis imperdiet massa tincidunt. Cras tincidunt lobortis feugiat
-          vivamus at augue. At augue eget arcu dictum varius duis at consectetur
-          lorem. Velit sed ullamcorper morbi tincidunt. Lorem donec massa sapien
-          faucibus et molestie ac.
+          
+          <ImgMediaCard/>
         </Typography>
+        <Footer />
       </Main>
+
       <Drawer
         sx={{
           width: drawerWidth,
