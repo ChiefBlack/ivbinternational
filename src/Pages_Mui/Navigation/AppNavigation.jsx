@@ -32,6 +32,7 @@ import Card from "../Card";
 import { Container } from "../Container";
 import content from "../content";
 import logoIBV from "../images/logoIBV.png";
+
 import Footer from "../Footer";
 import ImgMediaCard from "../ImgCardMedia";
 const drawerWidth = 240;
@@ -145,8 +146,7 @@ export default function PersistentDrawerRight() {
           ))}
           Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
           eiusmod tempor incididunt ut labore et dolore magna aliqua. Rhoncus
-          
-          <ImgMediaCard/>
+          <ImgMediaCard />
         </Typography>
         <Footer />
       </Main>
