@@ -69,6 +69,7 @@ app.get("/creatures", (req, res) => {
   console.log(req.route); // "['ocean']"
   console.log(req.headers["user-agent"]);
   // console.log(req.body);
+  res.download("./Test.js");
 });
 
 app.listen(3001, (err) => {

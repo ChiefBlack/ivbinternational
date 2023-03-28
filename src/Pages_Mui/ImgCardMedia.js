@@ -46,12 +46,11 @@ export default function ImgMediaCard() {
           image={imagePic}
         />
         <CardContent>
-          <Typography gutterBottom variant="h5" component="div">
-            Lizard
+          <Typography gutterBottom variant="h4" component="div">
+          Molapo 
           </Typography>
           <Typography variant="body2" color="text.secondary">
-            Lizards are a widespread group of squamate reptiles, with over 6,000
-            species, ranging across all continents except Antarctica
+            ccccccccccccccccccccc
           </Typography>
         </CardContent>
         <CardActions>

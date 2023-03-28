@@ -7,3 +7,8 @@
 #     "password": "helloworld"
 #  }
  http://localhost:3001/creatures?filter=sharks
+
+
+GET http://localhost:3001/creatures
+
+    
