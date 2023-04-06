@@ -28,7 +28,7 @@ const ApplyButton = styled(Button)(({ theme }) => ({
     color: "white",
   },
 }));
-const CampaighnButton = styled(Button)(({ theme }) => ({
+const CampaignButton = styled(Button)(({ theme }) => ({
   border: "2px blueGrey solid",
 
   "&:hover": {
@@ -52,7 +52,10 @@ function HoverButton() {
   return (
     <div>
       <AboutButton
+        href="/about"
         sx={{
+          height: "40px",
+          width: "200px",
           backgroundColor: "#69D2E7",
           color: "white",
         }}
@@ -61,7 +64,10 @@ function HoverButton() {
       </AboutButton>
 
       <ApplyButton
+        href="/apply-online"
         sx={{
+          height: "40px",
+          width: "200px",
           backgroundColor: "#457eac",
           color: "white",
         }}
@@ -69,16 +75,20 @@ function HoverButton() {
         Apply Online
       </ApplyButton>
 
-      <CampaighnButton
+      <CampaignButton href="/campaign"
         sx={{
+          height:"40px",
+          width:"200px",
           backgroundColor: "#2d5d7b",
           color: "white",
         }}
       >
         <Button> Campaign</Button>
-      </CampaighnButton>
-      <ContactButton
-        sx={{
+      </CampaignButton>
+      <ContactButton href="/contact-us"
+        sx={{ 
+          height:"40px",
+          width:"200px",
           backgroundColor: "#011C27",
           color: "white",
         }}

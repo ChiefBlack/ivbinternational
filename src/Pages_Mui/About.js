@@ -1,12 +1,17 @@
 import { styled } from "@mui/system";
 import React from "react";
+import content from "./content";
+import Card from "./Card";
 
-const AboutPAge = styled(div)({
-  "&:hoover": "BGAI Fund raising",
-});
 
 function About() {
-  return <></>;
+  return <>
+  {
+   content.map(items=>(<Card  item={items}key={items.id}/>))
+
+  }
+  
+  </>;
 }
 
 export default About;

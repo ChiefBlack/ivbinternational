@@ -8,7 +8,7 @@ import Tabs from "./tabs";
 import { BrowserRouter, Route, Router } from "react-router-dom";
 import Header from "./Container/Header";
 import Profile from "./Container/Profile";
-import Contact from "./Container/Contact";
+// import Contact from "./Container/Contact";
 import Project from "./Container/Project";
 import ProductDetails from "../src/Container/ProductDetails";
 import TodoApp from "./Test/TodoApp";
@@ -19,6 +19,9 @@ import { createTheme } from "@mui/system";
 import { ThemeProvider } from "styled-components";
 import SideBar from "./Pages_Mui/SideBar";
 import ImageLogo from "./Pages_Mui/ImageLogo";
+import Contact from "./Pages_Mui/Contact-us";
+import Framer from "./Pages_Mui/Framer";
+import Body from "./Pages_Mui/Content/Body";
 
 const theme = createTheme({
   palette: {
@@ -48,12 +51,14 @@ const App = () => {
       <BrowserRouter>
         {/* <ImageLogo/> */}
         <PersistentDrawerRight />
+        
+        <Route path="/contact-us" component={Contact}/>
         {/* <SideBar/> */}
         {/* <Header/>
       <TodoApp/>  
            <Route path="/"exact component={GridLayout}/>
            <Route path="/profile" component={Profile}/>
-           <Route path="/contact" component={Contact}/>
+           <Route path="/contact-us" component={Contact}/>
            <Route path="/projects" component={Project}/>
             <Route path="/products/:prductID" component={ProductDetails}/>  */}
       </BrowserRouter>
@@ -65,39 +70,3 @@ export default App;
 
 
 
-{
-  /* <div className='movieApp'>
-<h1> MovieLand</h1>
-<div className='search '>
- <input  placeholder='search movie' value={searchTerm} onChange={(e)=>setSearchTem(e.target.value)}/>
- <i className="fa fa-search" aria-hidden="true" onClick={()=>searchMovie(searchTerm)}></i>
-
-</div>
-</div> */
-}
-{
-  /* <h2>{console.log(setCount())}</h2>
-<h2>   hello word{count}</h2><br/>
-<b>Simply explained</b><br/>
-
-<button onClick={()=>setCount(count +1)}>click</button> */
-}
-{
-  /* <Sidebar/> */
-}
-{
-  /* <Tabs/> */
-}
-// {
-// movies.length>0 ? (
-// <div className='center'>
-// {movies.map((movie)=>(<MovieApp movie={movie}/>
-// ))}
-// </div>
-//           ): (
-//                 <div className='empty'>
-//                <h2> No movies  Found </h2>
-
-//                 </div>
-//               )
-// }

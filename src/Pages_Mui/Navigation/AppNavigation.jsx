@@ -17,6 +17,8 @@ import ListItemButton from "@mui/material/ListItemButton";
 import ListItemIcon from "@mui/material/ListItemIcon";
 import ListItemText from "@mui/material/ListItemText";
 import InboxIcon from "@mui/icons-material/MoveToInbox";
+import { createTheme } from "@mui/system";
+import { ThemeProvider } from "styled-components";
 import MailIcon from "@mui/icons-material/Mail";
 import {
   Button,
@@ -30,16 +32,22 @@ import HoverButton from "../HoverButton";
 import SideBar from "../SideBar";
 import Card from "../Card";
 import { Container } from "../Container";
-import content from "../content";
 import logoIBV from "../images/logoIBV.png";
-
+// import imageBack from '../../../public/images/illustration.svg'
 import Footer from "../Footer";
 import ImgMediaCard from "../ImgCardMedia";
+import Contact from "../Contact-us";
+import { motion } from "framer-motion";
+import { BrowserRouter, Route } from "react-router-dom";
+import About from "../About";
+
 const drawerWidth = 240;
 
 const Main = styled("main", { shouldForwardProp: (prop) => prop !== "open" })(
   ({ theme, open }) => ({
     flexGrow: 1,
+
+    backgroundImage: "url(`${logoIBV}`)",
     padding: theme.spacing(3),
     transition: theme.transitions.create("margin", {
       easing: theme.transitions.easing.sharp,
@@ -111,7 +119,8 @@ export default function PersistentDrawerRight() {
       <AppBar position="fixed" open={open}>
         <Toolbar>
           <Typography variant="h6" noWrap sx={{ flexGrow: 1 }} component="div">
-            <img
+            <motion.img
+              whileHover={{ scale: 0.5 }}
               src={logoIBV}
               alt="logo"
               style={{ height: "90px", objectFit: "cover" }}
@@ -122,7 +131,14 @@ export default function PersistentDrawerRight() {
             variant="outline"
             aria-label="outlined primary button group"
           >
-            <HoverButton />
+            {" "}
+            <motion.div
+              initial={{ opacity: 0, scale: 0.5 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.5 }}
+            >
+              <HoverButton />
+            </motion.div>
           </ButtonGroup>
 
           <IconButton
@@ -139,18 +155,18 @@ export default function PersistentDrawerRight() {
 
       <Main open={open}>
         <DrawerHeader />
-
-        <Typography paragraph>
-          {content.map((item, index) => (
-            <Card key={index} item={item} />
-          ))}
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-          eiusmod tempor incididunt ut labore et dolore magna aliqua. Rhoncus
-          <ImgMediaCard />
-        </Typography>
-        <Footer />
+        <BrowserRouter>
+          <Typography div>
+            <Route path="/about" component={About} />
+            <Route path="/contact-us" component={Contact} />
+            //its payment gateway //forms manipulation for both investment and
+            BGAI // for campaigns use video link so degign feature links for PPt
+            show ======consultation for investment
+          </Typography>
+          {/* <ImgMediaCard /> */}
+          {/* <Footer /> */}
+        </BrowserRouter>
       </Main>
-
       <Drawer
         sx={{
           width: drawerWidth,
@@ -181,16 +197,4 @@ export default function PersistentDrawerRight() {
 }
 
 {
-  /* <List sx={{backgroundColor:"black", display:"flex", width:"240", flowDirection:"column"}}>
-{['BGAI Fund raising', 'NPO Fund raising', 'BGAI Investors', 'NPO Sponsorship'].map((text, index) => (
-  <ListItem key={index} disablePadding sx={{backgroundColor:"red"}}>
-    <ListItemButton>
-      <ListItemIcon>
-        {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
-      </ListItemIcon>
-      <ListItemText primary={text} />
-    </ListItemButton>
-  </ListItem>
-))}
-</List> */
 }
