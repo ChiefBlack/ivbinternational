@@ -40,14 +40,16 @@ import Contact from "../Contact-us";
 import { motion } from "framer-motion";
 import { BrowserRouter, Route } from "react-router-dom";
 import About from "../About";
-
+import bgImage from "/home/molapo/Desktop/mypractices/src/Pages_Mui/images/bgImage.jpg";
+import Campaign from "../Campaign";
+import ApplyOnline from "../Apply-Online";
 const drawerWidth = 240;
 
 const Main = styled("main", { shouldForwardProp: (prop) => prop !== "open" })(
   ({ theme, open }) => ({
     flexGrow: 1,
 
-    backgroundImage: "url(`${logoIBV}`)",
+    backgroundImage: bgImage,
     padding: theme.spacing(3),
     transition: theme.transitions.create("margin", {
       easing: theme.transitions.easing.sharp,
@@ -159,6 +161,8 @@ export default function PersistentDrawerRight() {
           <Typography div>
             <Route path="/about" component={About} />
             <Route path="/contact-us" component={Contact} />
+            <Route path="/campaign" component={Campaign} />
+            <Route path="/apply-online" component={ApplyOnline} />
             //its payment gateway //forms manipulation for both investment and
             BGAI // for campaigns use video link so degign feature links for PPt
             show ======consultation for investment

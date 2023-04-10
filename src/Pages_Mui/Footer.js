@@ -20,7 +20,7 @@ const styledFooter = styled(Paper)(({ theme }) => ({
 function Footer() {
   return (
     <styledFooter>
-      <Paper sx={{backgroundColor:"#03254E", height: "40px",}}>
+      <Paper xl={{backgroundColor:"#03254E", height: "40px",}}>
         <p>Copyright © 2023</p>
       </Paper> 
     </styledFooter>
