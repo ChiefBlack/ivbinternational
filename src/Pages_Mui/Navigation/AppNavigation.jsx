@@ -38,11 +38,12 @@ import Footer from "../Footer";
 import ImgMediaCard from "../ImgCardMedia";
 import Contact from "../Contact-us";
 import { motion } from "framer-motion";
-import { BrowserRouter, Route } from "react-router-dom";
+import { BrowserRouter, Route, Switch } from "react-router-dom";
 import About from "../About";
 import bgImage from "/home/molapo/Desktop/mypractices/src/Pages_Mui/images/bgImage.jpg";
 import Campaign from "../Campaign";
 import ApplyOnline from "../Apply-Online";
+import HomePage from "../HomePage";
 const drawerWidth = 240;
 
 const Main = styled("main", { shouldForwardProp: (prop) => prop !== "open" })(
@@ -159,16 +160,19 @@ export default function PersistentDrawerRight() {
         <DrawerHeader />
         <BrowserRouter>
           <Typography div>
+          <Switch>
             <Route path="/about" component={About} />
+            <Route path="/"  exact component={HomePage} />
             <Route path="/contact-us" component={Contact} />
             <Route path="/campaign" component={Campaign} />
             <Route path="/apply-online" component={ApplyOnline} />
-            //its payment gateway //forms manipulation for both investment and
+            </Switch>
+            {/* //its payment gateway //forms manipulation for both investment and
             BGAI // for campaigns use video link so degign feature links for PPt
-            show ======consultation for investment
+            show ======consultation for investment */}
           </Typography>
           {/* <ImgMediaCard /> */}
-          {/* <Footer /> */}
+        
         </BrowserRouter>
       </Main>
       <Drawer
@@ -196,6 +200,7 @@ export default function PersistentDrawerRight() {
         <SideBar />
         <Divider />
       </Drawer>
+     
     </Box>
   );
 }

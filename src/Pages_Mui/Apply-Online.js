@@ -8,10 +8,8 @@ import Radio from "@mui/material/Radio";
 import FormControlLabel from "@mui/material/FormControlLabel";
 import { Button } from "@mui/material";
 import { motion } from "framer-motion";
-
 import backgroundImage1 from "./images/bgImage2.jpg";
 import backgroundImage2 from "./images/invest2.jpg";
-
 import backgroundImage3 from "./images/investment.jpg";
 
 const backgroundImages = [

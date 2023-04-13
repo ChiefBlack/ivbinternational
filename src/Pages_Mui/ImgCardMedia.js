@@ -7,7 +7,7 @@ import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
 import { Container, styled } from "@mui/system";
 import logoIBV from "./images/logoIBV.png";
-import imagePic from "./images/unnamed.jpg";
+
 
 const StyledMediaDiv = styled(Container)(({}) => ({
   display: "flex",
@@ -43,7 +43,7 @@ export default function ImgMediaCard() {
           component="img"
           alt="green iguana"
           height="140"
-          image={imagePic}
+          image={logoIBV}
         />
         <CardContent>
           <Typography gutterBottom variant="h4" component="div">

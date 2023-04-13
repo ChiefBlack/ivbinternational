@@ -1,13 +1,18 @@
 import styled from "styled-components";
 
+import backgroundImage from "./images/conversation.svg";
+
+
 export const StyledCard = styled.div`
   display: flex;
-  
-  background-color: #fff;
+  background: url(${backgroundImage}) no-repeat center center fixed;
+  height: 400px;
+  align-items:center;
+  justify-content:center;
   border-radius: 15px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.15);
-  margin: 40px 0;
-  padding: 20px;
+  margin-top: 40px;
+  
   flex-direction: ${({ layout }) => layout || "row"};
 
   img {
@@ -17,7 +22,7 @@ export const StyledCard = styled.div`
   & > div {
     flex: 1;
   }
-  h2 {
+  h1 {
     color:#69D2E7;
     font-size: 30px;
   }

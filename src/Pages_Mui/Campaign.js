@@ -17,21 +17,16 @@ const BoxCampaign = styled("div")(({ theme }) => ({
   // necessary for content to be below app bar
   ...theme.mixins.toolbar,
   justifyContent: "flex-start",
-  backgroundImage: "url('./images/bgImage.jpg')",
+  backgroundImage: `url(${bgImage})`,
   backgroundSize: "cover",
 }));
 
 export default function Campaign() {
   return (
-    <BoxCampaign>
+    
       <Card component="li" sx={{ minWidth: 300, flexGrow: 1 }}>
         <CardCover>
-          <img
-            src={bgImage}
-            srcSet="https://images.unsplash.com/photo-1502657877623-f66bf489d236?auto=format&fit=crop&w=800&dpr=2 2x"
-            loading="lazy"
-            alt=""
-          />
+        <h1> content of the campaign Molapo </h1>
         </CardCover>
         <CardContent>
           <Typography
@@ -44,31 +39,7 @@ export default function Campaign() {
           </Typography>
         </CardContent>
       </Card>
-      <Card component="li" sx={{ minWidth: 300, flexGrow: 1 }}>
-        <CardCover>
-          <video
-            autoPlay
-            loop
-            muted
-            poster="https://assets.codepen.io/6093409/river.jpg"
-          >
-            <source
-              src="https://assets.codepen.io/6093409/river.mp4"
-              type="video/mp4"
-            />
-          </video>
-        </CardCover>
-        <CardContent>
-          <Typography
-            level="h6"
-            fontWeight="lg"
-            textColor="#fff"
-            mt={{ xs: 12, sm: 18 }}
-          >
-            Video
-          </Typography>
-        </CardContent>
-      </Card>
-    </BoxCampaign>
+    
+  
   );
 }
