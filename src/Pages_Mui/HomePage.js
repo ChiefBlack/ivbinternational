@@ -5,6 +5,7 @@ import { useEffect,useState } from 'react';
 import backgroundImage1 from "./images/bgImage2.jpg";
 import backgroundImage2 from "./images/interestRate.jpg";
 import backgroundImage3 from "./images/calculateRate.jpg";
+import MyDiv from './Box';
 
 const Title = styled(Typography)({
     fontSize: '4.5rem',
@@ -64,6 +65,7 @@ const images = [
             <Button variant='outlined' href='about' >Read More</Button>
             <Button variant='contained' href='/contact-us'>In touch</Button>
           </Description>
+          
         </Box>
       </Box>
     );

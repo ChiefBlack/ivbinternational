@@ -11,6 +11,7 @@ const Container = styled("div")({
   maxWidth: "1200px",
   margin: "0 auto",
   padding: "2rem",
+  boxShadow: "0 2.8px 2.2px rgba(0, 0, 0, 0.34)",
 });
 
 const Column = styled("div")({
@@ -56,8 +57,8 @@ export default function Contact() {
     <Container>
       <Column>
         <CompanyInfo>
-          <h2 style={{color:"red"}}> Business and investments</h2>
-          <p>6102 Refiloe   St.</p>
+          <h2 style={{ color: "red" }}> Business and investments</h2>
+          <p>6102 Refiloe St.</p>
           <p>DanHouse, </p>
           <p>Cell: 079 029 0822 </p>
           <p>Email: ivbbusiness.investment@gmail.com </p>

@@ -160,19 +160,11 @@ export default function PersistentDrawerRight() {
         <DrawerHeader />
         <BrowserRouter>
           <Typography div>
-          <Switch>
-            <Route path="/about" component={About} />
-            <Route path="/"  exact component={HomePage} />
-            <Route path="/contact-us" component={Contact} />
-            <Route path="/campaign" component={Campaign} />
-            <Route path="/apply-online" component={ApplyOnline} />
-            </Switch>
+            {/* here is where components will be put Bitch */}
             {/* //its payment gateway //forms manipulation for both investment and
             BGAI // for campaigns use video link so degign feature links for PPt
             show ======consultation for investment */}
           </Typography>
-          {/* <ImgMediaCard /> */}
-        
         </BrowserRouter>
       </Main>
       <Drawer
@@ -200,7 +192,6 @@ export default function PersistentDrawerRight() {
         <SideBar />
         <Divider />
       </Drawer>
-     
     </Box>
   );
 }

@@ -1,45 +1,30 @@
 import * as React from "react";
-import Box from "@mui/joy/Box";
+
 import Card from "@mui/joy/Card";
-import CardCover from "@mui/joy/CardCover";
-import CardContent from "@mui/joy/CardContent";
-import Typography from "@mui/material/Typography";
 import { styled } from "@mui/material/styles";
 import bgImage from "./images/bgImage.jpg";
+import { CardCover } from "@mui/joy";
 const BoxCampaign = styled("div")(({ theme }) => ({
   display: "flex",
   gap: 5,
-
-  borderRadius: "10px",
-  marginTop: "40px",
+  borderRadius: "7px",
   alignItems: "center",
-  padding: theme.spacing(0, 1),
+  padding: theme.spacing(1, 2),
   // necessary for content to be below app bar
   ...theme.mixins.toolbar,
-  justifyContent: "flex-start",
+  //justifyContent: "flex-start",
   backgroundImage: `url(${bgImage})`,
   backgroundSize: "cover",
 }));
 
 export default function Campaign() {
   return (
-    
-      <Card component="li" sx={{ minWidth: 300, flexGrow: 1 }}>
+    <BoxCampaign>
+      <Card variant="outline" sx={{ width: "350px",height:"400px"}}>
         <CardCover>
-        <h1> content of the campaign Molapo </h1>
+          <h1> hello world</h1>
         </CardCover>
-        <CardContent>
-          <Typography
-            level="h6"
-            fontWeight="lg"
-            textColor="#fff"
-            mt={{ xs: 12, sm: 18 }}
-          >
-            Image
-          </Typography>
-        </CardContent>
       </Card>
-    
-  
+    </BoxCampaign>
   );
 }

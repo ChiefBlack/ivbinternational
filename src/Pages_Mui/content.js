@@ -9,12 +9,12 @@ const content = [
     subHeading:"IVB business and investments’ ONE investment is a single business consultation investment made by its CEO; into businesses with high growth potential and massive risks. This investment increases the value of business start-ups amongst its many functions.",
     image: "illustration-grow-together.svg",
   },
-  // {
-  //   id: 2,
-  //   title: "Flowing Conversations",
-  //   body: "You wouldn't paginate a conversation in real life, so why do it online? Our threads have just-in-time loading for a more natural flow.",
-  //   image: "illustration-flowing-conversation.svg",
-  // },
+  {
+    id: 2,
+    title: "Flowing Conversations",
+    body: "You wouldn't paginate a conversation in real life, so why do it online? Our threads have just-in-time loading for a more natural flow.",
+    image: "illustration-flowing-conversation.svg",
+  },
   // {
   //   id: 3,
   //   title: "Your Users",
