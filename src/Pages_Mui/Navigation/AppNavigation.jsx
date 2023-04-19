@@ -33,7 +33,7 @@ import SideBar from "../SideBar";
 import Card from "../Card";
 import { Container } from "../Container";
 import logoIBV from "../images/logoIBV.png";
-// import imageBack from '../../../public/images/illustration.svg'
+
 import Footer from "../Footer";
 import ImgMediaCard from "../ImgCardMedia";
 import Contact from "../Contact-us";
