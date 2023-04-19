@@ -40,7 +40,7 @@ import Contact from "../Contact-us";
 import { motion } from "framer-motion";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
 import About from "../About";
-import bgImage from "/home/molapo/Desktop/mypractices/src/Pages_Mui/images/bgImage.jpg";
+import bgImage from "../images/bgImage.jpg";
 import Campaign from "../Campaign";
 import ApplyOnline from "../Apply-Online";
 import HomePage from "../HomePage";
