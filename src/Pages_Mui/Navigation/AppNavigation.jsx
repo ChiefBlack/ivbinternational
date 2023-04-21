@@ -5,52 +5,21 @@ import Drawer from "@mui/material/Drawer";
 import MuiAppBar from "@mui/material/AppBar";
 import Toolbar from "@mui/material/Toolbar";
 import CssBaseline from "@mui/material/CssBaseline";
-import List from "@mui/material/List";
 import Typography from "@mui/material/Typography";
 import Divider from "@mui/material/Divider";
 import IconButton from "@mui/material/IconButton";
 import MenuIcon from "@mui/icons-material/Menu";
 import ChevronLeftIcon from "@mui/icons-material/ChevronLeft";
 import ChevronRightIcon from "@mui/icons-material/ChevronRight";
-import ListItem from "@mui/material/ListItem";
-import ListItemButton from "@mui/material/ListItemButton";
-import ListItemIcon from "@mui/material/ListItemIcon";
-import ListItemText from "@mui/material/ListItemText";
-import InboxIcon from "@mui/icons-material/MoveToInbox";
-import { createTheme } from "@mui/system";
-import { ThemeProvider } from "styled-components";
-import MailIcon from "@mui/icons-material/Mail";
-import {
-  Button,
-  ButtonGroup,
-  FormControl,
-  InputLabel,
-  MenuItem,
-  Select,
-} from "@mui/material";
+import { ButtonGroup } from "@mui/material";
 import HoverButton from "../HoverButton";
 import SideBar from "../SideBar";
-import Card from "../Card";
-import { Container } from "../Container";
 import logoIBV from "../images/logoIBV.png";
-
-import Footer from "../Footer";
-import ImgMediaCard from "../ImgCardMedia";
-import Contact from "../Contact-us";
 import { motion } from "framer-motion";
-import { BrowserRouter, Route, Switch } from "react-router-dom";
-import About from "../About";
-import bgImage from "../images/bgImage.jpg";
-import Campaign from "../Campaign";
-import ApplyOnline from "../Apply-Online";
-import HomePage from "../HomePage";
 const drawerWidth = 240;
-
 const Main = styled("main", { shouldForwardProp: (prop) => prop !== "open" })(
   ({ theme, open }) => ({
     flexGrow: 1,
-
-    backgroundImage: bgImage,
     padding: theme.spacing(3),
     transition: theme.transitions.create("margin", {
       easing: theme.transitions.easing.sharp,
@@ -103,11 +72,6 @@ export default function PersistentDrawerRight() {
   const theme = useTheme();
   const [open, setOpen] = React.useState(false);
 
-  const [age, setAge] = React.useState("");
-  const handleChange = (event) => {
-    setAge(event.target.value);
-  };
-
   const handleDrawerOpen = () => {
     setOpen(true);
   };
@@ -158,14 +122,13 @@ export default function PersistentDrawerRight() {
 
       <Main open={open}>
         <DrawerHeader />
-        <BrowserRouter>
-          <Typography div>
-            {/* here is where components will be put Bitch */}
-            {/* //its payment gateway //forms manipulation for both investment and
+
+        <Typography div>
+          {/* here is where components will be put Bitch */}
+          {/* //its payment gateway //forms manipulation for both investment and
             BGAI // for campaigns use video link so degign feature links for PPt
             show ======consultation for investment */}
-          </Typography>
-        </BrowserRouter>
+        </Typography>
       </Main>
       <Drawer
         sx={{
@@ -194,7 +157,4 @@ export default function PersistentDrawerRight() {
       </Drawer>
     </Box>
   );
-}
-
-{
 }

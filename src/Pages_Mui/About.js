@@ -1,15 +1,6 @@
 import React from "react";
 import content from "./content";
-import Card from "./Card";
-import CardActions from "@mui/material/CardActions";
-import CardContent from "@mui/material/CardContent";
-import CardMedia from "@mui/material/CardMedia";
-import Button from "@mui/material/Button";
-import Typography from "@mui/material/Typography";
-import Container from "@mui/system";
-import logoIBV from "./images/logoIBV.png";
 import Box from "@mui/material/Box";
-import Slideshow from "./SlideShow";
 import SlideShow from "./SlideShow";
 import Example from "./Example"
 function About() {

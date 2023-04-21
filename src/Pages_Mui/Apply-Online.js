@@ -3,9 +3,6 @@ import { styled } from "@mui/material/styles";
 import TextField from "@mui/material/TextField";
 import MenuItem from "@mui/material/MenuItem";
 import backgroundImage from "./images/bgImage.jpg";
-import RadioGroup from "@mui/material/RadioGroup";
-import Radio from "@mui/material/Radio";
-import FormControlLabel from "@mui/material/FormControlLabel";
 import { Button } from "@mui/material";
 import { motion } from "framer-motion";
 import backgroundImage1 from "./images/bgImage2.jpg";
@@ -54,17 +51,11 @@ const StyledMenuItem = styled(MenuItem)({
 
 const ApplyOnline = () => {
   const [funding, setFunding] = React.useState("");
-
-  const [sex, setSex] = React.useState("");
   const [backgroundImageIndex, setBackgroundImageIndex] = React.useState(0);
 
   const changeBackgroundImage = () => {
     const nextIndex = (backgroundImageIndex + 1) % backgroundImages.length;
     setBackgroundImageIndex(nextIndex);
-  };
-
-  const handleSexChange = (event) => {
-    setSex(event.target.value);
   };
 
   const handleFundingChange = (event) => {
@@ -73,10 +64,6 @@ const ApplyOnline = () => {
 
   const handleApplyHereClick = () => {
     // TODO: Implement apply here button click functionality
-  };
-
-  const handlePaymentGatewayClick = () => {
-    // TODO: Implement payment gateway button click functionality
   };
 
   return (
