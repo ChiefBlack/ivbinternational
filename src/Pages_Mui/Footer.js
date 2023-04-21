@@ -1,7 +1,7 @@
 import React from 'react';
 import Footer from 'rc-footer';
 import 'rc-footer/assets/index.css';
-import logo from './images/calculateRate.jpg';
+import logo from './images/bgImage.jpg';
 import { Typography } from '@mui/material';
 
 const FooterComponent = () => {
