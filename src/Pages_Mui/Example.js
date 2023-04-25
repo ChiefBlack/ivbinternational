@@ -2,7 +2,7 @@ import React from 'react';
 import { Container, Typography, styled } from '@mui/material';
 
 const MyContainer = styled(Container)({
-  maxWidth: 'sx',
+  maxWidth: 'md',
   padding: '2rem',
   backgroundColor: '#f7f7f7',
   boxShadow: "0 2.8px 2.2px rgba(0, 0, 0, 0.34)",
