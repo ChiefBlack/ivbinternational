@@ -23,11 +23,7 @@ const SlideContainer = styled(Paper)({
   position: 'relative',
 });
 
-const SlideNumber = styled('div')({
-  position: 'absolute',
-  bottom: 16,
-  right: 16,
-});
+
 
 const SlideShow = () => {
   const slideImages = [
@@ -41,7 +37,7 @@ const SlideShow = () => {
       <Slide>
         {slideImages.map((image, index) => (
           <SlideContainer key={index} style={{ backgroundImage: `url(${image})` }}>
-            <SlideNumber>Slide {index + 1}</SlideNumber>
+            
           </SlideContainer>
         ))}
       </Slide>

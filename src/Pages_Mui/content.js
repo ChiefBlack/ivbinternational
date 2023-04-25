@@ -1,28 +1,62 @@
 const content = [
   {
     id: 1,
-    title: "Business growth and Investment BGAI service",
-    body: " The Business Growth and Investment BGAI process is a donation, debt, reward and equity based crowd funding campaign. Entrepreneurs build business plans and funding proposals with the help of IVB business consultants. IVB business and investments then connects them to investors and donors who help them achieve their business plans. This service caters to businesses and non-profit organisations of all kinds",
-    subTitle:"Investments",
-    subBody:"IVB business and investments’ investments are capital, resource and skill inputs that are invested towards companies in BGAI business crow  funding at different stages; for different reasons and returns.",
-   subHeadTitle:"IVB ONE Investment",
-    subHeading:"IVB business and investments’ ONE investment is a single business consultation investment made by its CEO; into businesses with high growth potential and massive risks. This investment increases the value of business start-ups amongst its many functions.",
-    image: "illustration-grow-together.svg",
+    title: "About us",
+    body: `IVB Business and Investments is a consultation and investment management
+            company which raises funds for potential NPO and businesses’ growth as well as their
+            development. We do this by designing fund raising campaigns in processes called the
+            Business growth and Investment process as well as the NPO fund raising campaign
+           `,
   },
   {
     id: 2,
-    title: "Flowing Conversations",
-    body: "You wouldn't paginate a conversation in real life, so why do it online? Our threads have just-in-time loading for a more natural flow.",
-    image: "illustration-flowing-conversation.svg",
+    title: "Mission",
+    body: ` Successfully assist newly established businesses to access start-up capital and to grow
+             into A-rated investments; to capacitate SMMEs through training and development;
+             create mutually beneficial and long lasting investment partnerships between blue
+             chip companies and their prospective investment partners; encourage corporate
+             company owners to give to Non-profit organisations; give them insight on how well
+             the NPOs grow with their contributions
+           `,
   },
   // {
   //   id: 3,
-  //   title: "Your Users",
-  //   body: "It takes no time at all to integrate Huddle with your app's authentication solution. This means, once signed in to your app, your users can start chatting immediately.",
-  //   image: "illustration-your-users.svg",
+  //   title: "Flowing Conversations",
+  //   body: `You wouldn't paginate a conversation in real life, so why do it online? 
+  //          Our threads have just-in-time loading for a more natural flow.
+  //          `
+         
+  // },
+  // {
+  //   id: 4,
+  //   title: "Vision",
+  //   body: `The ultimate one stop investment management and consulting firm that creates a
+  //          unified corporate community
+  //          `,
   // },
 
-  
+  // {
+  //   id: 5,
+  //   title: "services",
+  //   body: `The ultimate one stop investment management and consulting firm that creates a
+  //          unified corporate community
+  //          `,
+  // },
+ 
+  // {
+  //   id: 5,
+  //   title: "Business growth and Investment BGAI service",
+  //   body: ` The Business Growth and Investment BGAI process is a donation,
+  //           debt, reward and equity based crowd funding campaign. Entrepreneurs
+  //           build business plans and funding proposals with the help of IVB business 
+  //           consultants. IVB business and investments then connects them to investors 
+  //           and donors who help them achieve their business plans. This service caters 
+  //           to businesses and non-profit organisations of all kinds
+  //           `
+  // },
+ 
+ 
+
 ];
 
 export default content;

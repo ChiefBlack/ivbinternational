@@ -20,12 +20,6 @@ export default function Campaign() {
     <BoxCampaign>
       <VideoCampaign />
       <VideoCampaign />
-
-      {/* <Card variant="outline" sx={{ width: "350px",height:"400px"}}>
-        <CardCover>
-          
-        </CardCover>
-      </Card> */}
     </BoxCampaign>
   );
 }

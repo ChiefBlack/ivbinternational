@@ -12,6 +12,7 @@ const Header = styled(Typography)({
   fontSize: '2rem',
   fontWeight: 'bold',
   marginBottom: '2rem',
+  color:"#69D2E7"
 });
 
 const Content = styled(Typography)({
@@ -19,10 +20,10 @@ const Content = styled(Typography)({
 });
 
 const Example = ({
-    item: { id, title, body, image, subBody, subTitle, subHeadTitle, subHeading },
+    item: { id, title, body },
   }) => {
   return (
-    <MyContainer>
+    <MyContainer key={id}>
       <Header variant="h1" component="h2">
         {title}
       </Header>
