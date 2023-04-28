@@ -5,6 +5,10 @@ import { useEffect, useState } from "react";
 import backgroundImage1 from "./images/bgImage2.jpg";
 import backgroundImage2 from "./images/interestRate.jpg";
 import backgroundImage3 from "./images/calculateRate.jpg";
+import serviceContent from "./ServiceContent";
+import Example from "./Example";
+import { StyledCard } from "./StyledCard";
+
 
 const Title = styled(Typography)({
   fontSize: "4.5rem",
@@ -44,36 +48,40 @@ export default function HomePage() {
   }, []);
 
   return (
-    <Box sx={{ position: "relative", height: "100vh" }}>
-      <BackgroundImage
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ duration: 1 }}
-        exit={{ opacity: 0 }}
-        key={images[imageIndex]}
-        imageUrl={images[imageIndex]}
-      />
-      <Box
-        sx={{
-          position: "absolute",
-          top: "50%",
-          left: "50%",
-          transform: "translate(-50%, -50%)",
-          textAlign: "center",
-          zIndex: 1,
-        }}
-      >
-        <Title>Welcome to Business and Investment</Title>
-        <Description>
-          <Button variant="outlined" href="about">
-            Read More
-          </Button>
-          <Button variant="contained" href="/contact-us">
-            In touch
-          </Button>
-        </Description>
+    <>
+      <Box sx={{ position: "relative", height: "100vh" }}>
+        <BackgroundImage
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 1 }}
+          exit={{ opacity: 0 }}
+          key={images[imageIndex]}
+          imageUrl={images[imageIndex]}
+        />
+        <Box
+          sx={{
+            position: "absolute",
+            top: "50%",
+            left: "50%",
+            transform: "translate(-50%, -50%)",
+            textAlign: "center",
+            zIndex: 1,
+          }}
+        >
+          <Title>Welcome to Business and Investment</Title>
+          <Description>
+            <Button variant="outlined" href="about">
+              Read More
+            </Button>
+            <Button variant="contained" href="/contact-us">
+              In touch
+            </Button>
+          </Description>
+        </Box>
       </Box>
-    </Box>
-     
+      <StyledCard>
+        {serviceContent.map(items=>{return(<Example item={items} key={items.id}/>)})}
+        </StyledCard>
+    </>
   );
 }

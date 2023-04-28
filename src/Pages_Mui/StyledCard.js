@@ -11,7 +11,7 @@ export const StyledCard = styled.div`
   justify-content:center;
   border-radius: 15px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.15);
-  margin-top: 40px;
+ 
   
   flex-direction: ${({ layout }) => layout || "row"};
 

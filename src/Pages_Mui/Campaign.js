@@ -12,7 +12,7 @@ const BoxCampaign = styled("div")(({ theme }) => ({
 }));
 const videoPlay = [
   "https://www.dropbox.com/s/0ku5xt2hv1tgc0z/Leratong%20Old%20Age%20Home%20interview.mp4?dl=0",
-  "https://www.dropbox.com/s/gudww0jqm8wm2hg/IVB%20confirmed%20pitch%20deck.mp4?dl=0",
+  "https://www.dropbox.com/s/qhny7awjtkg7pwx/IVB%20Investment%201%20DVD%20Part%20One.mp4?dl=0",
 ];
 export default function Campaign() {
   return (
