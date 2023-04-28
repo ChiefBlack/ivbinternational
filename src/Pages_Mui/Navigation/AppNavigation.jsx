@@ -122,13 +122,6 @@ export default function PersistentDrawerRight() {
 
       <Main open={open}>
         <DrawerHeader />
-
-        <Typography div>
-          {/* here is where components will be put Bitch */}
-          {/* //its payment gateway //forms manipulation for both investment and
-            BGAI // for campaigns use video link so degign feature links for PPt
-            show ======consultation for investment */}
-        </Typography>
       </Main>
       <Drawer
         sx={{

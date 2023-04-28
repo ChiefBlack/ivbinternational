@@ -6,14 +6,13 @@ import backgroundImage from "./images/bgImage.jpg";
 import { Button } from "@mui/material";
 import { motion } from "framer-motion";
 import backgroundImage1 from "./images/bgImage2.jpg";
-import backgroundImage2 from "./images/invest2.jpg";
-import backgroundImage3 from "./images/investment.jpg";
+
+
 
 const backgroundImages = [
-  backgroundImage,
+ backgroundImage,
   backgroundImage1,
-  backgroundImage2,
-  backgroundImage3,
+  
 ];
 
 const StyledDiv = styled(motion.div)({
@@ -21,7 +20,6 @@ const StyledDiv = styled(motion.div)({
   paddingTop: "20px",
   width: "100%",
   height: "100vh",
-  background: `url(${backgroundImage}) no-repeat center center fixed`,
   backgroundSize: "cover",
   transition: "background-image 10s ease",
 });
@@ -54,7 +52,7 @@ const ApplyOnline = () => {
   const [backgroundImageIndex, setBackgroundImageIndex] = React.useState(0);
 
   const changeBackgroundImage = () => {
-    const nextIndex = (backgroundImageIndex + 1) % backgroundImages.length;
+    const nextIndex = (backgroundImageIndex +1) % backgroundImages.length;
     setBackgroundImageIndex(nextIndex);
   };
 
@@ -68,15 +66,17 @@ const ApplyOnline = () => {
 
   return (
     <StyledDiv
-      style={{
-        backgroundImage: `url(${backgroundImages[backgroundImageIndex]})`,
-      }}
-      onAnimationComplete={changeBackgroundImage}
+    style={{
+      backgroundImage: `url(${backgroundImages[backgroundImageIndex]})`,
+      
+    }}
+       onAnimationComplete={changeBackgroundImage}
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
       transition={{ duration: 1, loop: Infinity, repeatDelay: 2 }}
     >
+      
       <StyledForm>
         <StyledTextField
           select

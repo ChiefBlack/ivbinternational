@@ -7,6 +7,7 @@ import HomePage from "./Pages_Mui/HomePage";
 import Campaign from "./Pages_Mui/Campaign";
 import ApplyOnline from "./Pages_Mui/Apply-Online";
 import FooterComponent from "./Pages_Mui/Footer";
+
 const App = () => {
   return (
     <>
@@ -20,6 +21,7 @@ const App = () => {
           <Route path="/apply-online" component={ApplyOnline} />
         </Switch>
         <FooterComponent/>
+       
       </BrowserRouter>
     </>
   );

@@ -3,6 +3,7 @@ import content from "./content";
 import Box from "@mui/material/Box";
 import SlideShow from "./SlideShow";
 import Example from "./Example"
+import MyTeam from "./MyTeam";
 function About() {
   return (
     <>
@@ -20,6 +21,7 @@ function About() {
           ))}
         
       </Box>
+      <MyTeam/>
     </>
   );
 }
