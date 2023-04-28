@@ -127,7 +127,7 @@ const ApplyOnline = () => {
         />
 
         <Button variant="outlined" onSubmit={handleApplyHereClick}>
-          apply here
+          Submit
         </Button>
       </StyledForm>
     </StyledDiv>

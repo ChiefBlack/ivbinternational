@@ -6,7 +6,7 @@ import profile2 from "./images/profile2.jpeg";
 import profile3 from "./images/profile3.jpeg";
 
 function MyTeam() {
-  const profileImages = [profile1, profile2, profile3];
+  const profileImages = [profile2, profile1, profile3];
   return (
     <>
       <motion.div
@@ -20,7 +20,7 @@ function MyTeam() {
         initial={{ x: 10 }}
         animate={{ x: "20%" }}
         transition={{ duration: 5 }}
-        style={{display:"flex", }}
+        style={{display:"flex",gap:"10px" }}
       >
        {profileImages.map((images,index)=>{
         return <TeamCard profileImage={images}  key={index}/>

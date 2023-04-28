@@ -1,17 +1,6 @@
 import styled from "@emotion/styled";
-import { Button, Typography } from "@mui/material";
-import { blueGrey } from "@mui/material/colors";
+import { Button } from "@mui/material";
 import React from "react";
-import { Link } from "react-router-dom";
-
-const CustomButton = styled(Button)(({ theme }) => ({
-  border: "2px blueGrey solid",
-
-  "&:hover": {
-    backgroundColor: "#03254E",
-    color: "white",
-  },
-}));
 const ContactButton = styled(Button)(({ theme }) => ({
   border: "2px blueGrey solid",
 
@@ -60,7 +49,7 @@ function HoverButton() {
           color: "white",
         }}
       >
-        About us
+        About IVB
       </AboutButton>
 
       <ApplyButton
@@ -75,25 +64,27 @@ function HoverButton() {
         Apply Online
       </ApplyButton>
 
-      <CampaignButton href="/campaign"
+      <CampaignButton
+        href="/campaign"
         sx={{
-          height:"40px",
-          width:"200px",
+          height: "40px",
+          width: "200px",
           backgroundColor: "#2d5d7b",
           color: "white",
         }}
       >
-        <Button> Campaign</Button>
+        <Button> Campaigns</Button>
       </CampaignButton>
-      <ContactButton href="/contact-us"
-        sx={{ 
-          height:"40px",
-          width:"200px",
+      <ContactButton
+        href="/contact-us"
+        sx={{
+          height: "40px",
+          width: "200px",
           backgroundColor: "#011C27",
           color: "white",
         }}
       >
-        Contact Us
+        Contact IVB
       </ContactButton>
     </div>
   );
