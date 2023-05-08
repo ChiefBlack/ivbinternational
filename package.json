@@ -1,6 +1,6 @@
 {
   "name": "mypractises",
-  "homepage":"http://ivbinternational.org",
+  "homepage": "http://ivbinternational.org",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
@@ -14,6 +14,7 @@
     "@testing-library/user-event": "^13.5.0",
     "axios": "^1.2.2",
     "framer-motion": "^10.11.2",
+    "google-maps-react": "^2.0.6",
     "material": "^0.5.3",
     "rc-footer": "^0.6.8",
     "react": "^18.2.0",

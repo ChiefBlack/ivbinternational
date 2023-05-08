@@ -4,6 +4,8 @@ import Box from "@mui/material/Box";
 import SlideShow from "./SlideShow";
 import Example from "./Example"
 import MyTeam from "./MyTeam";
+import { Card } from "@mui/material";
+import missioContent from "./Content/missionContent";
 function About() {
   return (
     <>
@@ -22,6 +24,11 @@ function About() {
         
       </Box>
       <MyTeam/>
+      <Card sx={{display:"flex", gap:2}}>
+      {missioContent.map((items) => (
+            <Example item={items} key={items.id} />
+          ))}
+      </Card>
     </>
   );
 }

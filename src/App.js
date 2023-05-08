@@ -11,6 +11,7 @@ import FooterComponent from "./Pages_Mui/Footer";
 const App = () => {
   return (
     <>
+  
       <PersistentDrawerRight />
       <BrowserRouter>
         <Switch>

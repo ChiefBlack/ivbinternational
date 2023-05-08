@@ -1,4 +1,4 @@
-import { Typography, Box, Button } from "@mui/material";
+import { Typography, Box, Button, Container } from "@mui/material";
 import { styled } from "@mui/material/styles";
 import { motion } from "framer-motion";
 import { useEffect, useState } from "react";
@@ -7,7 +7,17 @@ import backgroundImage2 from "./images/interestRate.jpg";
 import backgroundImage3 from "./images/calculateRate.jpg";
 import serviceContent from "./ServiceContent";
 import Example from "./Example";
-import { StyledCard } from "./StyledCard";
+
+const variantContainer = {
+  hover: {
+    scale: 0.9,
+    transition: {
+      duration: 0.3,
+      yoyo: Infinity
+    }
+  }
+  
+};
 
 
 const Title = styled(Typography)({
@@ -79,9 +89,16 @@ export default function HomePage() {
           </Description>
         </Box>
       </Box>
-      <StyledCard>
+      <Container
+       component={motion.div}
+       variants={variantContainer}
+       initial={{translateX:-50}}
+       animate={{translateX:0}}
+       whileHover="hover"
+       variant="contained"
+      >
         {serviceContent.map(items=>{return(<Example item={items} key={items.id}/>)})}
-        </StyledCard>
+        </Container>
     </>
   );
 }

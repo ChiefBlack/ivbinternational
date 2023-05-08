@@ -2,8 +2,8 @@ import { styled } from "@mui/material/styles";
 import TextField from "@mui/material/TextField";
 import Button from "@mui/material/Button";
 import { motion } from "framer-motion";
-import companyAddress from "./ServiceContent";
-
+import companyAddress from "./Content/companyInfo";
+import Map from "./MapComponent";
 
 const Container = styled("div")({
   display: "flex",
@@ -24,11 +24,6 @@ const CompanyInfo = styled("div")({
   marginBottom: "2rem",
 });
 
-
-
-
-
-
 const Form = styled(motion.form)({
   display: "flex",
   flexDirection: "column",
@@ -39,45 +34,57 @@ export default function Contact() {
     event.preventDefault();
     // Handle form submission
   };
-
+  
   return (
-    <Container>
-      <Column>
-     {companyAddress.map((address ,index)=>{
-      return <CompanyInfo key={index}>
-      <h2 style={{ color: "red" }}>{address.companyName}</h2>
-      <p>{address.streetName}</p>
-      <p>{address.houseName} </p>
-      <p>Cell:{address.phone} </p>
-    <p>Email: {address.email}</p>
-      <p> registration: {address.reg}</p>
-    </CompanyInfo>
-
-     })}
-       
-      </Column>
-      <Column>
-        <Form
-          onSubmit={handleSubmit}
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 0.5 }}
-        >
-          <TextField label="Name" variant="outlined" margin="dense" required />
-          <TextField label="Email" variant="outlined" margin="dense" required />
-          <TextField
-            label="Message"
-            variant="outlined"
-            margin="dense"
-            multiline
-            rows={4}
-            required
-          />
-          <Button variant="outlined" color="primary" type="submit">
-            Send Message
-          </Button>
-        </Form>
-      </Column>
-    </Container>
+    <>
+  
+      <Container>
+        <Column>
+          {companyAddress.map((address, index) => {
+            return (
+              <CompanyInfo key={index}>
+                <h2 style={{ color: "red" }}>{address.companyName}</h2>
+                <p>Cell:{address.phoneNumber} </p>
+                <p>Email: {address.email}</p>
+                <p> registration: {address.reg}</p>
+              </CompanyInfo>
+            );
+          })}
+        </Column>
+        <Column>
+          <Form
+            onSubmit={handleSubmit}
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 0.5 }}
+          >
+            <TextField
+              label="Name"
+              variant="outlined"
+              margin="dense"
+              required
+            />
+            <TextField
+              label="Email"
+              variant="outlined"
+              margin="dense"
+              required
+            />
+            <TextField
+              label="Message"
+              variant="outlined"
+              margin="dense"
+              multiline
+              rows={4}
+              required
+            />
+            <Button variant="outlined" color="primary" type="submit">
+              Send Message
+            </Button>
+          </Form>
+        </Column>
+      </Container>
+      <Map />
+    </>
   );
 }
