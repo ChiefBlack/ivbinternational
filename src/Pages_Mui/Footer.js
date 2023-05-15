@@ -10,7 +10,7 @@ const FooterComponent = () => {
       items: [
         {
           title: "Our Story",
-          href: "/our-story",
+          href: "/about",
         },
         {
           title: "Contact Us",
@@ -23,11 +23,23 @@ const FooterComponent = () => {
       items: [
         {
           title: "BGAI Funding",
-          href: "/funding",
+          href: "/apply-online",
         },
         {
           title: "investment",
-          href: "/investors",
+          href: "/contact-us",
+        },
+      ],
+    },
+    {
+      title: "Get in touch here",
+      items: [
+        {
+          href: "/info@ivbinternational.org",
+        },
+        {
+          title: "info@ivbinternational.org",
+          href: "/contact-us",
         },
       ],
     },

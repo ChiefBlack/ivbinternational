@@ -1,5 +1,5 @@
 import React from "react";
-import { BrowserRouter, Route,Switch } from "react-router-dom";
+import {  Route,Routes } from "react-router-dom";
 import PersistentDrawerRight from "./Pages_Mui/Navigation/AppNavigation";
 import Contact from "./Pages_Mui/Contact-us";
 import About from "./Pages_Mui/About";
@@ -13,17 +13,17 @@ const App = () => {
     <>
   
       <PersistentDrawerRight />
-      <BrowserRouter>
-        <Switch>
-          <Route path="/about" component={About} />
-          <Route path="/" exact component={HomePage} />
-          <Route path="/contact-us" component={Contact} />
-          <Route path="/campaign" component={Campaign} />
-          <Route path="/apply-online" component={ApplyOnline} />
-        </Switch>
+      
+        <Routes>
+          <Route path="/about" element={<About/>} />
+          <Route path="/" exact element={<HomePage/>} />
+          <Route path="/contact-us" element={<Contact/>} />
+          <Route path="/campaign" element={<Campaign/>} />
+          <Route path="/apply-online" element={<ApplyOnline/>} />
+        </Routes>
         <FooterComponent/>
        
-      </BrowserRouter>
+      
     </>
   );
 };

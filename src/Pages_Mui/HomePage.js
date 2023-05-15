@@ -13,12 +13,10 @@ const variantContainer = {
     scale: 0.9,
     transition: {
       duration: 0.3,
-      yoyo: Infinity
-    }
-  }
-  
+      yoyo: Infinity,
+    },
+  },
 };
-
 
 const Title = styled(Typography)({
   fontSize: "4.5rem",
@@ -90,15 +88,18 @@ export default function HomePage() {
         </Box>
       </Box>
       <Container
-       component={motion.div}
-       variants={variantContainer}
-       initial={{translateX:-50}}
-       animate={{translateX:0}}
-       whileHover="hover"
-       variant="contained"
+        sx={{ display: "flex" }}
+        component={motion.div}
+        variants={variantContainer}
+        initial={{ translateX: -50 }}
+        animate={{ translateX: 0 }}
+        whileHover="hover"
+        variant="contained"
       >
-        {serviceContent.map(items=>{return(<Example item={items} key={items.id}/>)})}
-        </Container>
+        {serviceContent.map((items) => {
+          return <Example item={items} key={items.id} />;
+        })}
+      </Container>
     </>
   );
 }

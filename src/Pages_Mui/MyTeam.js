@@ -35,7 +35,7 @@ function MyTeam() {
         initial={{ translateX: -100 }}
         animate={{ translateX: 0 }}
         transition={{ duration: 4 }}
-        sx={{ display: "flex", gap: "50px"}}
+        sx={{ display: "flex", gap: "5px"}}
       >
         <TeamCard />
       </Box>
