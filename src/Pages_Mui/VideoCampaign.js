@@ -3,7 +3,7 @@ import React from "react";
 import ReactPlayer from "react-player";
 
 const VideoCampaign = ({ video, title }) => {
-  const videoName = video.split('/').pop().split('.')[0];
+  const videoName = video.split("/").pop().split(".")[0];
   return (
     <>
       <Card>
@@ -17,7 +17,7 @@ const VideoCampaign = ({ video, title }) => {
         />
         <Typography variant="body2" color="text.secondary">
           <p>{title}</p>
-          <Box color="">{videoName}</Box>
+          <Box>{videoName}</Box>
         </Typography>
       </Card>
     </>
