@@ -3,7 +3,6 @@ import TextField from "@mui/material/TextField";
 import Button from "@mui/material/Button";
 import { motion } from "framer-motion";
 import companyAddress from "./Content/companyInfo";
-import Map from "./MapComponent";
 
 const Container = styled("div")({
   display: "flex",
@@ -34,10 +33,9 @@ export default function Contact() {
     event.preventDefault();
     // Handle form submission
   };
-  
+
   return (
     <>
-  
       <Container>
         <Column>
           {companyAddress.map((address, index) => {
@@ -84,7 +82,6 @@ export default function Contact() {
           </Form>
         </Column>
       </Container>
-      <Map />
     </>
   );
 }
