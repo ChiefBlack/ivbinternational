@@ -12,8 +12,8 @@ const App = () => {
   return (
     <>
   
-      <PersistentDrawerRight />
-      
+
+     <PersistentDrawerRight />
         <Routes>
           <Route path="/about" element={<About/>} />
           <Route path="/" exact element={<HomePage/>} />

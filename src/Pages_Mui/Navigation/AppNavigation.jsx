@@ -123,7 +123,7 @@ export default function PersistentDrawerRight() {
       <Main open={open}>
         <DrawerHeader />
       </Main>
-      <Drawer
+     {window.screen.width <= 768 ? <Drawer
         sx={{
           width: drawerWidth,
           flexShrink: 0,
@@ -148,6 +148,8 @@ export default function PersistentDrawerRight() {
         <SideBar />
         <Divider />
       </Drawer>
+      :<></>
+      }
     </Box>
   );
 }
