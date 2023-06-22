@@ -3,7 +3,8 @@ import { styled } from "@mui/material/styles";
 import TextField from "@mui/material/TextField";
 import MenuItem from "@mui/material/MenuItem";
 import backgroundImage from "./images/bgImage.jpg";
-import { Button, Checkbox, FormControlLabel } from "@mui/material";
+import { Button, FormControlLabel } from "@mui/material";
+import Checkbox from "@mui/material/Checkbox";
 import { motion } from "framer-motion";
 import backgroundImage1 from "./images/bgImage2.jpg";
 
@@ -50,7 +51,7 @@ const validationSchema = yup.object({
     .string("Enter your email")
     .email("Enter a valid email")
     .required("Email is required"),
-  surname: yup.string("Enter your surname").required("Email is required"),
+  surname: yup.string("Enter your surname").required("surname is required"),
   cellNumber: yup
     .string("Enter your phone number")
     .required("this filled is required"),
@@ -61,32 +62,30 @@ const validationSchema = yup.object({
   idNumber: yup
     .number("Enter your id munber")
     .min(14, "thi id must have 14  numbers")
-    .max(14, "this id must have 14 number")
+    // .max(14, "this id must have 14 number")
     .required("The id muber is invalid"),
-  maritalStatus: yup
-    .string("please fill in ur marital status")
-    .required("marital status is required"),
+
   termsChecked: yup
     .boolean()
     .oneOf([true], "You must accept the terms and conditions"),
 });
+const options = [];
 
 const ApplyOnline = () => {
   const [backgroundImageIndex, setBackgroundImageIndex] = React.useState(0);
 
   const formik = useFormik({
     initialValues: {
-      maritalStatus: "",
       surname: "",
       email: "",
       cellNumber: "",
       idNumber: "",
       address: "",
-      funding: "",
+      // funding: "",
       name: "",
       termsChecked: false,
     },
-    validationSchema: validationSchema,
+    //validationSchema: validationSchema,
     onSubmit: (values) => {
       console.log(values);
     },
@@ -97,32 +96,32 @@ const ApplyOnline = () => {
     setBackgroundImageIndex(nextIndex);
   };
 
-  const handleApplyHereClick = async (e) => {
-    // TODO: Implement apply here button click functionality
-    e.preventDefault();
+  // const handleApplyHereClick = async (e) => {
+  //   // TODO: Implement apply here button click functionality
+  //   e.preventDefault();
 
-    try {
-      const response = await window.fetch("https://restcountries.com/v3/all", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-          " Access-Control-Allow-Origin": "*",
-        },
-        body: JSON.stringify({ formik }),
-      });
+  //   try {
+  //     const response = await window.fetch("https://restcountries.com/v3/all", {
+  //       method: "POST",
+  //       headers: {
+  //         "Content-Type": "application/json",
+  //         " Access-Control-Allow-Origin": "*",
+  //       },
+  //       body: JSON.stringify({ formik }),
+  //     });
 
-      if (response.ok) {
-        // Subscription successful, handle the response accordingly
-        console.log(response);
-      } else {
-        // Subscription failed, handle the response accordingly
-      }
-    } catch (error) {
-      // Send form data to the server
-      // Handle error while sending the request
-      console.log(error);
-    }
-  };
+  //     if (response.ok) {
+  //       // Subscription successful, handle the response accordingly
+  //       console.log(response);
+  //     } else {
+  //       // Subscription failed, handle the response accordingly
+  //     }
+  //   } catch (error) {
+  //     // Send form data to the server
+  //     // Handle error while sending the request
+  //     console.log(error);
+  //   }
+  // };
 
   return (
     <StyledDiv
@@ -141,6 +140,7 @@ const ApplyOnline = () => {
           label="Select Funding"
           variant="outlined"
           onChange={formik.handleChange}
+          
           fullWidth
           required
           error={formik.touched.funding && Boolean(formik.errors.funding)}
@@ -154,6 +154,7 @@ const ApplyOnline = () => {
         </StyledTextField>
         <StyledTextField
           label="Name"
+          name="name"
           variant="outlined"
           fullWidth
           required
@@ -162,20 +163,18 @@ const ApplyOnline = () => {
           helperText={formik.touched.name && formik.errors.name}
         />
         <StyledTextField
-          label="Marital Status"
+          label="Surname"
+          name=" surname"
           variant="outlined"
           fullWidth
           required
           onChange={formik.handleChange}
-          error={
-            formik.touched.maritalStatus && Boolean(formik.errors.maritalStatus)
-          }
-          helperText={
-            formik.touched.maritalStatus && formik.errors.maritalStatus
-          }
+          error={formik.touched.surname && Boolean(formik.errors.surname)}
+          helperText={formik.touched.surname && formik.errors.surname}
         />
         <StyledTextField
           label="Address"
+          name="address"
           variant="outlined"
           fullWidth
           required
@@ -187,6 +186,7 @@ const ApplyOnline = () => {
           label="Email"
           variant="outlined"
           type="email"
+          name="email"
           fullWidth
           required
           onChange={formik.handleChange}
@@ -197,6 +197,7 @@ const ApplyOnline = () => {
           label="Cell Number"
           variant="outlined"
           fullWidth
+          name="cellNumber"
           required
           onChange={formik.handleChange}
           error={formik.touched.cellNumber && Boolean(formik.errors.cellNumber)}
@@ -207,27 +208,23 @@ const ApplyOnline = () => {
           variant="outlined"
           fullWidth
           required
+          name="idNumber"
           onChange={formik.handleChange}
           error={formik.touched.idNumber && Boolean(formik.errors.idNumber)}
           helperText={formik.touched.idNumber && formik.errors.idNumber}
         />
 
+        <input type="hidden" name="merchant_id" value="10000100" />
+        <input type="hidden" name="merchant_key" value="46f0cd694581a" />
+        <input type="hidden" name="amount" value="100.00" />
+
         <FormControlLabel
           required
-          control={
-            <Checkbox
-              onChange={formik.handleChange}
-              error={
-                formik.touched.termsChecked &&
-                Boolean(formik.errors.termsChecked)
-              }
-              helperText={
-                formik.touched.termsChecked && formik.errors.termsChecked
-              }
-            />
-          }
-          label="I accept the terms and conditions"
+          control={<Checkbox name={formik.values.termsChecked} 
+          value={formik.values.termsChecked}/>}
+          label="Required"
         />
+        {console.log(formik.values.termsChecked)}
 
         <Button variant="outlined">Submit</Button>
       </StyledForm>
