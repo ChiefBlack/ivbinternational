@@ -12,7 +12,11 @@ import MobileNavbar from "./Pages_Mui/Navigation/MobileNavBar";
 const App = () => {
   return (
     <>
-      {window.screen.width >= 768 ? <PersistentDrawerRight /> :<MobileNavbar/>}
+      {window.screen.width >= 768 ? (
+        <PersistentDrawerRight />
+      ) : (
+        <MobileNavbar />
+      )}
       {/* <MobileNavbar/> */}
       <Routes>
         <Route path="/about" element={<About />} />

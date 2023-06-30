@@ -87,20 +87,21 @@ const ApplyOnline = () => {
       name: "",
       termsChecked: false,
     },
-    //validationSchema: validationSchema,
+    validationSchema: validationSchema,
     onSubmit: async () => {
-      const payment = await axios.post(
-        "https://sandbox.payfast.co.za​/eng/process",
-        {
+      const payment = await axios
+        .post("https://sandbox.payfast.co.za​/eng/process", {
           headers: {
             "Access-Control-Allow-Origin": "*",
             "Content-Type": "application/json",
           },
-        }
-      ).catch(err=>{console.log(err)});
-      // if (payment.ok) {
-      //   console.log(payment);
-      // }
+        })
+        .catch((err) => {
+          console.log(err);
+        });
+      if (payment.ok) {
+        console.log(payment);
+      }
     },
   });
 
@@ -147,7 +148,7 @@ const ApplyOnline = () => {
       exit={{ opacity: 0 }}
       transition={{ duration: 1, loop: Infinity, repeatDelay: 2 }}
     >
-      <StyledForm>
+      <StyledForm onSubmit={formik.handleSubmit}>
         <StyledTextField
           select
           label="Select Funding"
@@ -183,7 +184,6 @@ const ApplyOnline = () => {
           onChange={formik.handleChange}
           error={formik.touched.surname && Boolean(formik.errors.surname)}
           helperText={formik.touched.surname && formik.errors.surname}
-        
         />
         <StyledTextField
           label="Address"
@@ -226,19 +226,12 @@ const ApplyOnline = () => {
           error={formik.touched.idNumber && Boolean(formik.errors.idNumber)}
           helperText={formik.touched.idNumber && formik.errors.idNumber}
         />
-        {console.log(formik)}
+
         <input type="hidden" name="22425723" value="10000100" />
         <input type="hidden" name="zxhduhalp9ryb" value="46f0cd694581a" />
         <input type="hidden" name="amount" value="100.00" />
-        <form action="https://www.payfast.co.za/eng/process" method="post">
-   <input type="hidden" name="merchant_id" value="10000100"/>
-   <input type="hidden" name="merchant_key" value="46f0cd694581a"/>
-   <input type="hidden" name="amount" value="100.00"/>
-   <input type="hidden" name="item_name" value="Test Product"/>
-   <Button variant="outlined">Submit</Button>
-</form> 
 
-        {/* <FormControlLabel
+        <FormControlLabel
           required
           control={
             <Checkbox
@@ -246,10 +239,9 @@ const ApplyOnline = () => {
               value={formik.values.termsChecked}
             />
           }
-          label="Required"
-        /> */}
-
-        
+          label="Terms and conditions apply"
+        />
+        <Button variant="outlined">Submit</Button>
       </StyledForm>
     </StyledDiv>
   );
