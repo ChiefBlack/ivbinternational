@@ -11,6 +11,24 @@ import HoverButton from "../HoverButton";
 import logoIBV from "../images/logoIBV.png";
 import { motion } from "framer-motion";
 const drawerWidth = 240;
+const Main = styled("main", { shouldForwardProp: (prop) => prop !== "open" })(
+  ({ theme, open }) => ({
+    flexGrow: 1,
+    padding: theme.spacing(3),
+    transition: theme.transitions.create("margin", {
+      easing: theme.transitions.easing.sharp,
+      duration: theme.transitions.duration.leavingScreen,
+    }),
+    marginRight: -drawerWidth,
+    ...(open && {
+      transition: theme.transitions.create("margin", {
+        easing: theme.transitions.easing.easeOut,
+        duration: theme.transitions.duration.enteringScreen,
+      }),
+      marginRight: 0,
+    }),
+  })
+);
 
 const AppBar = styled(MuiAppBar, {
   shouldForwardProp: (prop) => prop !== "open",
@@ -64,12 +82,11 @@ export default function PersistentDrawerRight() {
               style={{ height: "90px", objectFit: "cover" }}
             />
           </Typography>
-          {/* code header Hear */}
+
           <ButtonGroup
             variant="outline"
             aria-label="outlined primary button group"
           >
-            {" "}
             <motion.div
               initial={{ opacity: 0, scale: 0.5 }}
               animate={{ opacity: 1, scale: 1 }}

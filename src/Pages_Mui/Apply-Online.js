@@ -10,7 +10,6 @@ import backgroundImage1 from "./images/bgImage2.jpg";
 
 import { useFormik } from "formik";
 import * as yup from "yup";
-import axios from "axios";
 
 const backgroundImages = [backgroundImage, backgroundImage1];
 
@@ -88,20 +87,22 @@ const ApplyOnline = () => {
       termsChecked: false,
     },
     validationSchema: validationSchema,
-    onSubmit: async () => {
-      const payment = await axios
-        .post("https://sandbox.payfast.co.za​/eng/process", {
-          headers: {
-            "Access-Control-Allow-Origin": "*",
-            "Content-Type": "application/json",
-          },
-        })
-        .catch((err) => {
-          console.log(err);
-        });
-      if (payment.ok) {
-        console.log(payment);
-      }
+    onSubmit: async ({submitForm, values}) => {
+      console.log(values)
+      // const payment = await axios
+      //   .post("https://sandbox.payfast.co.za​/eng/process", {
+      //     headers: {
+      //       "Access-Control-Allow-Origin": "*",
+      //       "Content-Type": "application/json",
+      //     },
+      //   })
+      //   .catch((err) => {
+      //     console.log(err);
+      //   });
+      // if (payment.ok) {
+      //   console.log(payment);
+      console.log(formik.values.termsChecked);
+      // }
     },
   });
 
@@ -148,8 +149,8 @@ const ApplyOnline = () => {
       exit={{ opacity: 0 }}
       transition={{ duration: 1, loop: Infinity, repeatDelay: 2 }}
     >
-      <StyledForm onSubmit={formik.handleSubmit}>
-        <StyledTextField
+      <StyledForm>
+        {/* <StyledTextField
           select
           label="Select Funding"
           variant="outlined"
@@ -164,7 +165,7 @@ const ApplyOnline = () => {
           <StyledMenuItem value="charitable-services">
             Charitable Services
           </StyledMenuItem>
-        </StyledTextField>
+        </StyledTextField> */}
         <StyledTextField
           label="Name"
           name="name"
@@ -227,9 +228,9 @@ const ApplyOnline = () => {
           helperText={formik.touched.idNumber && formik.errors.idNumber}
         />
 
-        <input type="hidden" name="22425723" value="10000100" />
+        {/* <input type="hidden" name="22425723" value="10000100" />
         <input type="hidden" name="zxhduhalp9ryb" value="46f0cd694581a" />
-        <input type="hidden" name="amount" value="100.00" />
+        <input type="hidden" name="amount" value="100.00" /> */}
 
         <FormControlLabel
           required
@@ -241,7 +242,10 @@ const ApplyOnline = () => {
           }
           label="Terms and conditions apply"
         />
-        <Button variant="outlined">Submit</Button>
+        {/* {formik.values.termsChecked ? <Button variant="outlined">Submit</Button>:<></>}   */}
+        <Button type="submit" variant="outlined" onSubmit={formik.handleSubmit}>
+          Submit
+        </Button>
       </StyledForm>
     </StyledDiv>
   );
