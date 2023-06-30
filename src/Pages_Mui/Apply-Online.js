@@ -10,6 +10,7 @@ import backgroundImage1 from "./images/bgImage2.jpg";
 
 import { useFormik } from "formik";
 import * as yup from "yup";
+import axios from "axios";
 
 const backgroundImages = [backgroundImage, backgroundImage1];
 
@@ -51,7 +52,7 @@ const validationSchema = yup.object({
     .string("Enter your email")
     .email("Enter a valid email")
     .required("Email is required"),
-  surname: yup.string("Enter your surname").required("surname is required"),
+  surname: yup.string("Enter your surname"),
   cellNumber: yup
     .string("Enter your phone number")
     .required("this filled is required"),
@@ -62,14 +63,15 @@ const validationSchema = yup.object({
   idNumber: yup
     .number("Enter your id munber")
     .min(14, "thi id must have 14  numbers")
-    // .max(14, "this id must have 14 number")
     .required("The id muber is invalid"),
 
   termsChecked: yup
     .boolean()
     .oneOf([true], "You must accept the terms and conditions"),
 });
-const options = [];
+// const options = [  { value: 'funding', label: 'Funding' },
+// { value: 'charity', label: 'Charity' },
+// { value: 'investment', label: 'Investment' }];
 
 const ApplyOnline = () => {
   const [backgroundImageIndex, setBackgroundImageIndex] = React.useState(0);
@@ -86,8 +88,19 @@ const ApplyOnline = () => {
       termsChecked: false,
     },
     //validationSchema: validationSchema,
-    onSubmit: (values) => {
-      console.log(values);
+    onSubmit: async () => {
+      const payment = await axios.post(
+        "https://sandbox.payfast.co.za​/eng/process",
+        {
+          headers: {
+            "Access-Control-Allow-Origin": "*",
+            "Content-Type": "application/json",
+          },
+        }
+      ).catch(err=>{console.log(err)});
+      // if (payment.ok) {
+      //   console.log(payment);
+      // }
     },
   });
 
@@ -134,13 +147,12 @@ const ApplyOnline = () => {
       exit={{ opacity: 0 }}
       transition={{ duration: 1, loop: Infinity, repeatDelay: 2 }}
     >
-      <StyledForm onClick={formik.handleSubmit}>
+      <StyledForm>
         <StyledTextField
           select
           label="Select Funding"
           variant="outlined"
           onChange={formik.handleChange}
-          
           fullWidth
           required
           error={formik.touched.funding && Boolean(formik.errors.funding)}
@@ -171,6 +183,7 @@ const ApplyOnline = () => {
           onChange={formik.handleChange}
           error={formik.touched.surname && Boolean(formik.errors.surname)}
           helperText={formik.touched.surname && formik.errors.surname}
+        
         />
         <StyledTextField
           label="Address"
@@ -213,20 +226,30 @@ const ApplyOnline = () => {
           error={formik.touched.idNumber && Boolean(formik.errors.idNumber)}
           helperText={formik.touched.idNumber && formik.errors.idNumber}
         />
-
-        <input type="hidden" name="merchant_id" value="10000100" />
-        <input type="hidden" name="merchant_key" value="46f0cd694581a" />
+        {console.log(formik)}
+        <input type="hidden" name="22425723" value="10000100" />
+        <input type="hidden" name="zxhduhalp9ryb" value="46f0cd694581a" />
         <input type="hidden" name="amount" value="100.00" />
+        <form action="https://www.payfast.co.za/eng/process" method="post">
+   <input type="hidden" name="merchant_id" value="10000100"/>
+   <input type="hidden" name="merchant_key" value="46f0cd694581a"/>
+   <input type="hidden" name="amount" value="100.00"/>
+   <input type="hidden" name="item_name" value="Test Product"/>
+   <Button variant="outlined">Submit</Button>
+</form> 
 
-        <FormControlLabel
+        {/* <FormControlLabel
           required
-          control={<Checkbox name={formik.values.termsChecked} 
-          value={formik.values.termsChecked}/>}
+          control={
+            <Checkbox
+              name={formik.values.termsChecked}
+              value={formik.values.termsChecked}
+            />
+          }
           label="Required"
-        />
-        {console.log(formik.values.termsChecked)}
+        /> */}
 
-        <Button variant="outlined">Submit</Button>
+        
       </StyledForm>
     </StyledDiv>
   );
