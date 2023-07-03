@@ -6,6 +6,7 @@ import {
   ListItemIcon,
   ListItemText,
   IconButton,
+  Box,
 } from '@mui/material';
 import MenuIcon from '@mui/icons-material/Menu';
 import InfoIcon from '@mui/icons-material/Info';
@@ -27,7 +28,7 @@ const MobileNavbar = () => {
     };
 
   return (
-    <>
+    <Box>
       
   <IconButton
         edge="start"
@@ -60,7 +61,7 @@ const MobileNavbar = () => {
           </ListItem>
         </List>
       </Drawer>
-    </>
+    </Box>
   );
 };
 

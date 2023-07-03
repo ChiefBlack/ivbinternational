@@ -1,7 +1,7 @@
 import React from "react";
 import { motion } from "framer-motion";
 import TeamCard from "./TeamCard";
-import { Box, Container } from "@mui/material";
+import { Box, Container, Typography, styled } from "@mui/material";
 
 const variantContainer = {
   hover: {
@@ -12,33 +12,44 @@ const variantContainer = {
     },
   },
 };
+const MyContainer = styled(Box)(({ theme }) => ({
+  display: 'flex',
+  gap: theme.spacing(3),
+  [theme.breakpoints.down('xs')]: {
+    display: '-ms-grid',
+  },
+}));
 
 function MyTeam() {
   return (
-    <Container maxWidth="lg" >
+    <Container maxWidth="lg">
       <Container
         component={motion.div}
         initial={{ x: -100 }}
-        animate={{ x: 200}}
+        animate={{ x: 50 }}
         transition={{ duration: 2 }}
         sx={{
           color: "#1B3358",
-         
         }}
       >
-        <h1>Meet our IVB Team</h1>
-      </Container >
-      <Box 
+        <Typography
+          component="h1"
+        
+        >
+          Meet our IVB Team
+        </Typography>
+      </Container>
+      <MyContainer 
         component={motion.div}
         variants={variantContainer}
         whileHover="hover"
         initial={{ translateX: -100 }}
         animate={{ translateX: 0 }}
         transition={{ duration: 4 }}
-        sx={{ display: "flex", gap: "5px"}}
+       
       >
         <TeamCard />
-      </Box>
+      </MyContainer >
     </Container>
   );
 }

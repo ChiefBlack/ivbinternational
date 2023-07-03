@@ -26,7 +26,7 @@ const sendEmailToAdmin = (email, name, surname) => {
     // Configure your email provider here
     service: "gmail",
     auth: {
-      user: "your-email@gmail.com",
+      user: "info@ivbinternational.org",
       pass: "your-email-password",
     },
   });
@@ -34,7 +34,7 @@ const sendEmailToAdmin = (email, name, surname) => {
   // Email options
   const mailOptions = {
     from: "your-email@gmail.com",
-    to: "admin@123.com",
+    to: "info@ivbinternational.org",
     subject: `New application received
     ${(name, surname)}`,
     text: `New application received from: ${email}`,
