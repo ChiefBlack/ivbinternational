@@ -65,7 +65,7 @@ const MobileNavbar = () => {
             
             
           </ListItem>
-          <ListItem button onClick={handleLinkClick}component={Link} to="/cantact-us">
+          <ListItem button onClick={handleLinkClick}component={Link} to="/contact-us">
             <ListItemIcon>
               <CampaignIcon/>
             </ListItemIcon>
