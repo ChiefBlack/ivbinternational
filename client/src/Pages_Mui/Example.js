@@ -1,7 +1,7 @@
 import React from 'react';
-import { Container, Typography, styled } from '@mui/material';
+import { Card, Typography, styled } from '@mui/material';
 
-const MyContainer = styled(Container)({
+const MyContainer = styled(Card)({
   maxWidth: 'md',
   padding: '2rem',
   backgroundColor: '#f7f7f7',

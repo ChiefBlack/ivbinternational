@@ -1,7 +1,7 @@
 import React from "react";
 import { styled } from "@mui/material/styles";
 import TextField from "@mui/material/TextField";
-import MenuItem from "@mui/material/MenuItem";
+
 import backgroundImage from "./images/bgImage.jpg";
 import { Button, FormControlLabel } from "@mui/material";
 import Checkbox from "@mui/material/Checkbox";
@@ -43,26 +43,22 @@ const StyledTextField = styled(TextField)({
   color: "black",
 });
 
-const StyledMenuItem = styled(MenuItem)({
-  fontSize: "16px",
-});
 const validationSchema = yup.object({
   email: yup
     .string("Enter your email")
     .email("Enter a valid email")
-    .required("Email is required"),
+    ,
   surname: yup.string("Enter your surname"),
   cellNumber: yup
-    .string("Enter your phone number")
-    .required("this filled is required"),
+    .string("Enter your phone number"),
   address: yup
     .string("Enter your postal address")
     .required("this filled  is required"),
-  name: yup.string("Enter your name").required("Name is required"),
+  name: yup.string("Enter your name"),
   idNumber: yup
     .number("Enter your id munber")
-    .min(14, "thi id must have 14  numbers")
-    .required("The id muber is invalid"),
+    .min(14, "thi id must have 14  numbers"),
+    
 
   termsChecked: yup
     .boolean()
@@ -87,8 +83,8 @@ const ApplyOnline = () => {
       termsChecked: false,
     },
     validationSchema: validationSchema,
-    onSubmit: async ({submitForm, values}) => {
-      console.log(values)
+    onSubmit: async (values) => {
+      console.log(values);
       // const payment = await axios
       //   .post("https://sandbox.payfast.co.za​/eng/process", {
       //     headers: {
@@ -168,17 +164,17 @@ const ApplyOnline = () => {
         </StyledTextField> */}
         <StyledTextField
           label="Name"
-          name="name"
+        
           variant="outlined"
           fullWidth
           required
-          onChange={formik.handleChange}
+          onChange={formik.values.handleChange}
           error={formik.touched.name && Boolean(formik.errors.name)}
           helperText={formik.touched.name && formik.errors.name}
         />
         <StyledTextField
           label="Surname"
-          name=" surname"
+          
           variant="outlined"
           fullWidth
           required
