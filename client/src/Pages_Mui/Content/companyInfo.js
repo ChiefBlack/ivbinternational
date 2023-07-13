@@ -1,8 +1,8 @@
 const companyAddress =[{
     companyName: " Business and investments",
     
-    phoneNumber:" 079 029 0822",
-    email:"ivbbusiness.investment@gmail.com",
+    phoneNumber:"  (+27) 79 067 1612",
+    email:" ivbfunding@gmail.com",
     reg:"2017/134496/07"
    }];
 

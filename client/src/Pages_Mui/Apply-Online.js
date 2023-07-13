@@ -3,7 +3,13 @@ import { styled } from "@mui/material/styles";
 import TextField from "@mui/material/TextField";
 
 import backgroundImage from "./images/bgImage.jpg";
-import { Button, FormControlLabel } from "@mui/material";
+import {
+  Button,
+  FormControlLabel,
+  Link,
+  MenuItem,
+  Typography,
+} from "@mui/material";
 import Checkbox from "@mui/material/Checkbox";
 import { motion } from "framer-motion";
 import backgroundImage1 from "./images/bgImage2.jpg";
@@ -43,30 +49,30 @@ const StyledTextField = styled(TextField)({
   color: "black",
 });
 
-const validationSchema = yup.object({
-  email: yup
-    .string("Enter your email")
-    .email("Enter a valid email")
-    ,
-  surname: yup.string("Enter your surname"),
+const validationSchema = yup.object().shape({
+  email: yup.string("Enter your email").email("Enter a valid email"),
+  surname: yup.string("Enter your surname").required("This must be filled"),
   cellNumber: yup
-    .string("Enter your phone number"),
+    .number("Enter your phone number")
+    .required("Your phone number is reqauired"),
   address: yup
     .string("Enter your postal address")
-    .required("this filled  is required"),
-  name: yup.string("Enter your name"),
+    .required("full postal address is required"),
+
+  firstname: yup.string("Enter your name").required("this must be filled"),
   idNumber: yup
     .number("Enter your id munber")
-    .min(14, "thi id must have 14  numbers"),
-    
+    .min(14, "thi id must have 14  numbers")
+    .required("this  must be filled"),
 
   termsChecked: yup
-    .boolean()
-    .oneOf([true], "You must accept the terms and conditions"),
+    .boolean("Accecpt terms and conditions")
+    .oneOf([true], "You must accept the terms and conditions")
+    .required("you must check to submit a form"),
+  selectFunding: yup
+    .string("select funding")
+    .oneOf(["Funding", "Investment", "Charitable-services"]),
 });
-// const options = [  { value: 'funding', label: 'Funding' },
-// { value: 'charity', label: 'Charity' },
-// { value: 'investment', label: 'Investment' }];
 
 const ApplyOnline = () => {
   const [backgroundImageIndex, setBackgroundImageIndex] = React.useState(0);
@@ -78,27 +84,29 @@ const ApplyOnline = () => {
       cellNumber: "",
       idNumber: "",
       address: "",
-      // funding: "",
-      name: "",
+      selectFunding: "",
+      firstname: "",
       termsChecked: false,
     },
+    
     validationSchema: validationSchema,
     onSubmit: async (values) => {
       console.log(values);
-      // const payment = await axios
-      //   .post("https://sandbox.payfast.co.za​/eng/process", {
-      //     headers: {
-      //       "Access-Control-Allow-Origin": "*",
-      //       "Content-Type": "application/json",
-      //     },
-      //   })
-      //   .catch((err) => {
-      //     console.log(err);
-      //   });
-      // if (payment.ok) {
-      //   console.log(payment);
-      console.log(formik.values.termsChecked);
-      // }
+      const payment = await fetch(
+        "https://sandbox.payfast.co.za​/eng/process",
+        {
+          method: "post",
+          headers: {
+            "Access-Control-Allow-Origin": "*",
+            "Content-Type": "application/json",
+          },
+        }
+      ).catch((err) => {
+        console.log(err);
+      });
+      if (payment.ok) {
+        console.log(payment);
+      }
     },
   });
 
@@ -145,36 +153,39 @@ const ApplyOnline = () => {
       exit={{ opacity: 0 }}
       transition={{ duration: 1, loop: Infinity, repeatDelay: 2 }}
     >
-      <StyledForm>
-        {/* <StyledTextField
+      <StyledForm   onSubmit={formik.handleSubmit}>
+        <StyledTextField
           select
           label="Select Funding"
+          name="selectFunding"
           variant="outlined"
           onChange={formik.handleChange}
           fullWidth
           required
-          error={formik.touched.funding && Boolean(formik.errors.funding)}
-          helperText={formik.touched.funding && formik.errors.funding}
+          error={
+            formik.touched.selectFunding && Boolean(formik.errors.selectFunding)
+          }
+          helperText={
+            formik.touched.selectFunding && formik.errors.selectFunding
+          }
         >
-          <StyledMenuItem value="funding">Funding</StyledMenuItem>
-          <StyledMenuItem value="investment">Investment</StyledMenuItem>
-          <StyledMenuItem value="charitable-services">
-            Charitable Services
-          </StyledMenuItem>
-        </StyledTextField> */}
+          <MenuItem value="Funding">Funding</MenuItem>
+          <MenuItem value="Investment">Investment</MenuItem>
+          <MenuItem value="Charitable-services">Charitable Services</MenuItem>
+        </StyledTextField>
         <StyledTextField
-          label="Name"
-        
+          label="Full Names"
+          name="firstname"
           variant="outlined"
           fullWidth
           required
-          onChange={formik.values.handleChange}
-          error={formik.touched.name && Boolean(formik.errors.name)}
-          helperText={formik.touched.name && formik.errors.name}
+          onChange={formik.handleChange}
+          error={formik.touched.firstname && Boolean(formik.errors.firstname)}
+          helperText={formik.touched.firstname && formik.errors.firstname}
         />
         <StyledTextField
           label="Surname"
-          
+          name="surname"
           variant="outlined"
           fullWidth
           required
@@ -231,15 +242,24 @@ const ApplyOnline = () => {
         <FormControlLabel
           required
           control={
-            <Checkbox
-              name={formik.values.termsChecked}
-              value={formik.values.termsChecked}
-            />
+            <Checkbox name="termsChecked" onChange={formik.handleChange} />
           }
           label="Terms and conditions apply"
+          error={
+            formik.touched.termsChecked && Boolean(formik.errors.termsChecked)
+          }
+          helperText={formik.touched.termsChecked && formik.errors.termsChecked}
         />
-        {/* {formik.values.termsChecked ? <Button variant="outlined">Submit</Button>:<></>}   */}
-        <Button type="submit" variant="outlined" onSubmit={formik.handleSubmit}>
+        {formik.values.termsChecked === true ? (
+          <Typography variant="outlined">
+            By clicking her u agree to our terms and conditions.
+            <Link to="/about">view</Link>
+          </Typography>
+        ) : (
+          <></>
+        )}
+        <Button type="submit" variant="outlined"
+        >
           Submit
         </Button>
       </StyledForm>

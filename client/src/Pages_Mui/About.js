@@ -4,10 +4,10 @@ import Box from "@mui/material/Box";
 import SlideShow from "./SlideShow";
 import Example from "./Example"
 import MyTeam from "./MyTeam";
-import { Card,  CardContent,  Grid,  styled,  useMediaQuery } from "@mui/material";
+import {    styled,  useMediaQuery } from "@mui/material";
 import missioContent from "./Content/missionContent";
 import { motion } from "framer-motion";
-import ResponsiveContainer from "./Navigation/ResponsiveContainer";
+//import ResponsiveContainer from "./Navigation/ResponsiveContainer";
  
  
 const UserBox = styled(Box)(({theme})=>({
