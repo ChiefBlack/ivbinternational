@@ -15,8 +15,9 @@ const variantContainer = {
 const MyContainer = styled(Box)(({ theme }) => ({
   display: 'flex',
   gap: theme.spacing(3),
-  [theme.breakpoints.down('xs')]: {
-    display: '-ms-grid',
+  [theme.breakpoints.down('sm')]: {
+    flexDirection: 'column',
+    alignItems:"center"
   },
 }));
 

@@ -1,7 +1,8 @@
 import React from "react";
 import { styled } from "@mui/material/styles";
 import TextField from "@mui/material/TextField";
-
+import {  toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 import backgroundImage from "./images/bgImage.jpg";
 import {
   Button,
@@ -76,6 +77,7 @@ const validationSchema = yup.object().shape({
 
 const ApplyOnline = () => {
   const [backgroundImageIndex, setBackgroundImageIndex] = React.useState(0);
+ 
 
   const formik = useFormik({
     initialValues: {
@@ -88,25 +90,30 @@ const ApplyOnline = () => {
       firstname: "",
       termsChecked: false,
     },
-    
+
     validationSchema: validationSchema,
     onSubmit: async (values) => {
       console.log(values);
-      const payment = await fetch(
-        "https://sandbox.payfast.co.za​/eng/process",
-        {
-          method: "post",
-          headers: {
-            "Access-Control-Allow-Origin": "*",
-            "Content-Type": "application/json",
-          },
-        }
-      ).catch((err) => {
-        console.log(err);
-      });
-      if (payment.ok) {
-        console.log(payment);
-      }
+      
+      toast(
+        'cool stuff ahhh'
+      )
+
+      // const payment = await fetch(
+      //   "https://sandbox.payfast.co.za​/eng/process",
+      //   {
+      //     method: "post",
+      //     headers: {
+      //       "Access-Control-Allow-Origin": "*",
+      //       "Content-Type": "application/json",
+      //     },
+      //   }
+      // ).catch((err) => {
+      //   console.log(err);
+      // });
+      // if (payment.ok) {
+      //   console.log(payment);
+      // }
     },
   });
 
@@ -153,7 +160,7 @@ const ApplyOnline = () => {
       exit={{ opacity: 0 }}
       transition={{ duration: 1, loop: Infinity, repeatDelay: 2 }}
     >
-      <StyledForm   onSubmit={formik.handleSubmit}>
+      <StyledForm onSubmit={formik.handleSubmit}>
         <StyledTextField
           select
           label="Select Funding"
@@ -258,10 +265,10 @@ const ApplyOnline = () => {
         ) : (
           <></>
         )}
-        <Button type="submit" variant="outlined"
-        >
+        <Button type="submit" variant="outlined">
           Submit
         </Button>
+       
       </StyledForm>
     </StyledDiv>
   );

@@ -5,6 +5,7 @@ import { motion } from "framer-motion";
 import companyAddress from "./Content/companyInfo";
 import { useFormik } from "formik";
 import * as yup from "yup";
+import { toast } from "react-toastify";
 const Container = styled("div")({
   display: "flex",
   justifyContent: "space-between",
@@ -55,6 +56,9 @@ export default function Contact() {
     onSubmit: (values) => {
       console.log(values);
       // Handle form submission
+      toast(
+        'wait for our messages'
+      )
     },
   });
 

@@ -1,4 +1,4 @@
-import { Typography, Box, Button, Container } from "@mui/material";
+import { Typography, Box, Button,  } from "@mui/material";
 import { styled } from "@mui/material/styles";
 import { motion } from "framer-motion";
 import { useEffect, useState } from "react";
@@ -7,6 +7,7 @@ import backgroundImage2 from "./images/interestRate.jpg";
 import backgroundImage3 from "./images/calculateRate.jpg";
 import serviceContent from "./ServiceContent";
 import Example from "./Example";
+import { UserBox } from "./About";
 
 const variantContainer = {
   hover: {
@@ -78,7 +79,7 @@ export default function HomePage() {
         >
           <Title>Welcome to Business and Investment</Title>
           <Description>
-            <Button variant="outlined" href="about">
+            <Button variant="outlined" href="/about">
               Read More
             </Button>
             <Button variant="contained" href="/contact-us">
@@ -87,7 +88,7 @@ export default function HomePage() {
           </Description>
         </Box>
       </Box>
-      <Container
+      <UserBox
         sx={{ display: "flex" }}
         component={motion.div}
         variants={variantContainer}
@@ -99,7 +100,7 @@ export default function HomePage() {
         {serviceContent.map((items) => {
           return <Example item={items} key={items.id} />;
         })}
-      </Container>
+      </UserBox>
     </>
   );
 }
