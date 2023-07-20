@@ -5,8 +5,7 @@ import MuiAppBar from "@mui/material/AppBar";
 import Toolbar from "@mui/material/Toolbar";
 import CssBaseline from "@mui/material/CssBaseline";
 import Typography from "@mui/material/Typography";
-import IconButton from "@mui/material/IconButton";
-import { ButtonGroup } from "@mui/material";
+import { ButtonGroup, useTheme } from "@mui/material";
 import HoverButton from "../HoverButton";
 import logoIBV from "../images/logoIBV.png";
 import { motion } from "framer-motion";
@@ -46,16 +45,14 @@ const DrawerHeader = styled("div")(({ theme }) => ({
 }));
 
 export default function PersistentDrawerRight() {
-  const [open, setOpen] = React.useState(false);
 
-  const handleDrawerOpen = () => {
-    setOpen(true);
-  };
+const theme = useTheme();
+
 
   return (
     <Box sx={{ display: "flex" }}>
       <CssBaseline />
-      <AppBar position="fixed" open={open}>
+      <AppBar position="fixed" >
         <Toolbar>
           <Typography variant="h6" noWrap sx={{ flexGrow: 1 }} component="div">
             <motion.img
@@ -69,6 +66,8 @@ export default function PersistentDrawerRight() {
           <ButtonGroup
             variant="outline"
             aria-label="outlined primary button group"
+            sx={{
+          [theme.breakpoints.down('sm')]:{display:"none"}}}
           >
             <motion.div
               initial={{ opacity: 0, scale: 0.5 }}
@@ -79,13 +78,7 @@ export default function PersistentDrawerRight() {
             </motion.div>
           </ButtonGroup>
 
-          <IconButton
-            color="inherit"
-            aria-label="open drawer"
-            edge="end"
-            onClick={handleDrawerOpen}
-            sx={{ ...(open && { display: "none" }) }}
-          ></IconButton>
+         
         </Toolbar>
       </AppBar>
 

@@ -1,7 +1,7 @@
 import React from "react";
 import { motion } from "framer-motion";
 import TeamCard from "./TeamCard";
-import { Box, Container, Typography, styled } from "@mui/material";
+import { Box, Container,  styled } from "@mui/material";
 
 const variantContainer = {
   hover: {
@@ -23,30 +23,26 @@ const MyContainer = styled(Box)(({ theme }) => ({
 
 function MyTeam() {
   return (
-    <Container maxWidth="lg">
+    <Container >
       <Container
         component={motion.div}
-        initial={{ x: -100 }}
-        animate={{ x: 50 }}
+        initial={{ x: 0 }}
+        animate={{ x: 100 }}
         transition={{ duration: 2 }}
-        sx={{
-          color: "#1B3358",
-        }}
+      
       >
-        <Typography
-          component="h1"
-        
+        {/* <Typography
+        variant="h6"
+        sx={{alignItems:"center"}}
         >
           Meet our IVB Team
-        </Typography>
+        </Typography> */}
       </Container>
       <MyContainer 
         component={motion.div}
         variants={variantContainer}
         whileHover="hover"
-        initial={{ translateX: -100 }}
-        animate={{ translateX: 0 }}
-        transition={{ duration: 4 }}
+       
        
       >
         <TeamCard />

@@ -1,7 +1,7 @@
 import React from "react";
 import { styled } from "@mui/material/styles";
 import TextField from "@mui/material/TextField";
-import {  toast } from "react-toastify";
+import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import backgroundImage from "./images/bgImage.jpg";
 import {
@@ -77,7 +77,6 @@ const validationSchema = yup.object().shape({
 
 const ApplyOnline = () => {
   const [backgroundImageIndex, setBackgroundImageIndex] = React.useState(0);
- 
 
   const formik = useFormik({
     initialValues: {
@@ -94,10 +93,13 @@ const ApplyOnline = () => {
     validationSchema: validationSchema,
     onSubmit: async (values) => {
       console.log(values);
-      
-      toast(
-        'cool stuff ahhh'
-      )
+      const dataSend =window.fetch(values, "https:localhost/dataSend/", {
+        method: "post",
+      })
+        .then((response) => {console.log(response)})
+        .catch((error) => {console.log(error)});
+
+      toast("cool stuff ahhh");
 
       // const payment = await fetch(
       //   "https://sandbox.payfast.co.za​/eng/process",
@@ -259,8 +261,8 @@ const ApplyOnline = () => {
         />
         {formik.values.termsChecked === true ? (
           <Typography variant="outlined">
-            By clicking her u agree to our terms and conditions.
-            <Link to="/about">view</Link>
+            By checking this box you agree to our terms and conditions.
+            <Link to="/about">view our terms and conditions</Link>
           </Typography>
         ) : (
           <></>
@@ -268,7 +270,6 @@ const ApplyOnline = () => {
         <Button type="submit" variant="outlined">
           Submit
         </Button>
-       
       </StyledForm>
     </StyledDiv>
   );
