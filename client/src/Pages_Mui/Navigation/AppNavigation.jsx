@@ -9,8 +9,8 @@ import { ButtonGroup, useTheme } from "@mui/material";
 import HoverButton from "../HoverButton";
 import logoIBV from "../images/logoIBV.png";
 import { motion } from "framer-motion";
-const drawerWidth = 240;
 
+const drawerWidth = 240;
 
 const AppBar = styled(MuiAppBar, {
   shouldForwardProp: (prop) => prop !== "open",
@@ -45,14 +45,12 @@ const DrawerHeader = styled("div")(({ theme }) => ({
 }));
 
 export default function PersistentDrawerRight() {
-
-const theme = useTheme();
-
+  const theme = useTheme();
 
   return (
     <Box sx={{ display: "flex" }}>
       <CssBaseline />
-      <AppBar position="fixed" >
+      <AppBar position="fixed">
         <Toolbar>
           <Typography variant="h6" noWrap sx={{ flexGrow: 1 }} component="div">
             <motion.img
@@ -67,7 +65,8 @@ const theme = useTheme();
             variant="outline"
             aria-label="outlined primary button group"
             sx={{
-          [theme.breakpoints.down('sm')]:{display:"none"}}}
+              [theme.breakpoints.down("sm")]: { display: "none" },
+            }}
           >
             <motion.div
               initial={{ opacity: 0, scale: 0.5 }}
@@ -77,8 +76,6 @@ const theme = useTheme();
               <HoverButton />
             </motion.div>
           </ButtonGroup>
-
-         
         </Toolbar>
       </AppBar>
 

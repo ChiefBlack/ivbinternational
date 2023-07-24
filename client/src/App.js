@@ -8,16 +8,17 @@ import Campaign from "./Pages_Mui/Campaign";
 import ApplyOnline from "./Pages_Mui/Apply-Online";
 import FooterComponent from "./Pages_Mui/Footer";
 import MobileNavbar from "./Pages_Mui/Navigation/MobileNavBar";
-import { useMediaQuery } from "@mui/material";
 
 const App = () => {
-  const matches= useMediaQuery('sm');
   return (
     <>
-      {!matches ? (
+      {window.screen.width >= 768 ? (
         <PersistentDrawerRight />
       ) : (
-        <MobileNavbar />
+        <>
+          {" "}
+          <MobileNavbar />
+        </>
       )}
       {/* <MobileNavbar/> */}
       <Routes>
