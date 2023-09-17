@@ -21,7 +21,7 @@ const CampaignButton = styled(Button)(({ theme }) => ({
   border: "2px blueGrey solid",
 
   "&:hover": {
-    backgroundColor: "#45eac",
+    backgroundColor: "#011C27",
     color: "white",
   },
 }));

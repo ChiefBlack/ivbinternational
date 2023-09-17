@@ -49,7 +49,7 @@ const FooterComponent = () => {
   return (
     <Footer
       columns={columns}
-      bottom="Made with ❤️ by Molapo"
+      
       theme="dark"
       backgroundColor="#333"
     ></Footer>

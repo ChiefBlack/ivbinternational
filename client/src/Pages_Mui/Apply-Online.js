@@ -4,19 +4,14 @@ import TextField from "@mui/material/TextField";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import backgroundImage from "./images/bgImage.jpg";
-import {
-  Button,
-  FormControlLabel,
-  Link,
-  MenuItem,
-  Typography,
-} from "@mui/material";
+import { Button, FormControlLabel, MenuItem, Typography } from "@mui/material";
+import { Link } from "react-router-dom";
 import Checkbox from "@mui/material/Checkbox";
 import { motion } from "framer-motion";
 import backgroundImage1 from "./images/bgImage2.jpg";
-
 import { useFormik } from "formik";
 import * as yup from "yup";
+import axios from "axios";
 
 const backgroundImages = [backgroundImage, backgroundImage1];
 
@@ -75,8 +70,51 @@ const validationSchema = yup.object().shape({
     .oneOf(["Funding", "Investment", "Charitable-services"]),
 });
 
+const EmailSend = () => {};
+
 const ApplyOnline = () => {
   const [backgroundImageIndex, setBackgroundImageIndex] = React.useState(0);
+  const handleSubmitForm = async (values, actions) => {
+    try {
+      const response = await axios.post(
+        "https://localhost:8080/apply-online",
+        values
+      );
+      if (response.status === 200) {
+        // Success handling (e.g., showing a success message)
+
+        // send the message and get a callback with an error or details of the message that was sent
+
+        EmailSend();
+        console.log("Form submission successful!");
+        toast("Form submission successful");
+      }
+      // var xhr = new XMLHttpRequest();
+      // xhr.open("POST", "https://localhost:3000/sandbox.payfast.co.za​/eng/process");
+      // xhr.send();
+      //
+      // const response2 = await axios.post(
+      //   "https://sandbox.payfast.co.za​/eng/process",
+      //   {
+      //     method: "post",
+      //     headers: {
+      //       "Access-Control-Allow-Origin": "*",
+      //       "Content-Type": "application/json",
+      //     },
+      //   }
+      // );
+      // if (response2.status === 200) {
+      //   // Success handling for the second request
+      //   console.log("Second request successful!");
+      // }
+    } catch (error) {
+      // Error handling (e.g., showing an error message)
+      console.log("error is", error);
+      toast.error("there is the network error ");
+    } finally {
+      actions.setSubmitting(false);
+    }
+  };
 
   const formik = useFormik({
     initialValues: {
@@ -91,32 +129,7 @@ const ApplyOnline = () => {
     },
 
     validationSchema: validationSchema,
-    onSubmit: async (values) => {
-      console.log(values);
-      const dataSend =window.fetch(values, "https:localhost/dataSend/", {
-        method: "post",
-      })
-        .then((response) => {console.log(response)})
-        .catch((error) => {console.log(error)});
-
-      toast("cool stuff ahhh");
-
-      // const payment = await fetch(
-      //   "https://sandbox.payfast.co.za​/eng/process",
-      //   {
-      //     method: "post",
-      //     headers: {
-      //       "Access-Control-Allow-Origin": "*",
-      //       "Content-Type": "application/json",
-      //     },
-      //   }
-      // ).catch((err) => {
-      //   console.log(err);
-      // });
-      // if (payment.ok) {
-      //   console.log(payment);
-      // }
-    },
+    onSubmit: handleSubmitForm,
   });
 
   const changeBackgroundImage = () => {
@@ -124,37 +137,10 @@ const ApplyOnline = () => {
     setBackgroundImageIndex(nextIndex);
   };
 
-  // const handleApplyHereClick = async (e) => {
-  //   // TODO: Implement apply here button click functionality
-  //   e.preventDefault();
-
-  //   try {
-  //     const response = await window.fetch("https://restcountries.com/v3/all", {
-  //       method: "POST",
-  //       headers: {
-  //         "Content-Type": "application/json",
-  //         " Access-Control-Allow-Origin": "*",
-  //       },
-  //       body: JSON.stringify({ formik }),
-  //     });
-
-  //     if (response.ok) {
-  //       // Subscription successful, handle the response accordingly
-  //       console.log(response);
-  //     } else {
-  //       // Subscription failed, handle the response accordingly
-  //     }
-  //   } catch (error) {
-  //     // Send form data to the server
-  //     // Handle error while sending the request
-  //     console.log(error);
-  //   }
-  // };
-
   return (
     <StyledDiv
       style={{
-        backgroundImage: `url(${backgroundImages[backgroundImageIndex]})`,
+        backgroundImage: `url(${backgroundImages[0]})`,
       }}
       onAnimationComplete={changeBackgroundImage}
       initial={{ opacity: 0 }}
@@ -244,9 +230,9 @@ const ApplyOnline = () => {
           helperText={formik.touched.idNumber && formik.errors.idNumber}
         />
 
-        {/* <input type="hidden" name="22425723" value="10000100" />
+        <input type="hidden" name="22425723" value="10000100" />
         <input type="hidden" name="zxhduhalp9ryb" value="46f0cd694581a" />
-        <input type="hidden" name="amount" value="100.00" /> */}
+        <input type="hidden" name="amount" value="100.00" />
 
         <FormControlLabel
           required
@@ -262,7 +248,7 @@ const ApplyOnline = () => {
         {formik.values.termsChecked === true ? (
           <Typography variant="outlined">
             By checking this box you agree to our terms and conditions.
-            <Link to="/about">view our terms and conditions</Link>
+            <Link to="/terms">terms and conditions</Link>
           </Typography>
         ) : (
           <></>

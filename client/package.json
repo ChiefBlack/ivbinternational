@@ -2,8 +2,10 @@
   "name": "mypractises",
   "homepage": "https://ivb-business-and-investment.org/",
   "version": "0.1.0",
+  "proxy": "http://localhost:8080/",
   "private": true,
   "dependencies": {
+    "@emailjs/browser": "^3.11.0",
     "@emotion/react": "^11.10.6",
     "@emotion/styled": "^11.10.6",
     "@mui/icons-material": "^5.11.11",
@@ -13,6 +15,7 @@
     "@testing-library/react": "^13.4.0",
     "@testing-library/user-event": "^13.5.0",
     "axios": "^1.4.0",
+    "emailjs": "^4.0.3",
     "formik": "^2.4.2",
     "framer-motion": "^10.11.2",
     "material": "^0.5.3",

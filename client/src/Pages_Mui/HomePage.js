@@ -1,7 +1,7 @@
-import { Typography, Box, Button,  } from "@mui/material";
+import { Typography, Box, Button } from "@mui/material";
 import { styled } from "@mui/material/styles";
 import { motion } from "framer-motion";
-import { useEffect, useState } from "react";
+
 import backgroundImage1 from "./images/bgImage2.jpg";
 import backgroundImage2 from "./images/interestRate.jpg";
 import backgroundImage3 from "./images/calculateRate.jpg";
@@ -46,15 +46,7 @@ const BackgroundImage = styled(motion.div)(({ imageUrl }) => ({
 const images = [backgroundImage1, backgroundImage2, backgroundImage3];
 
 export default function HomePage() {
-  const [imageIndex, setImageIndex] = useState(0);
-
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setImageIndex((prevIndex) => (prevIndex + 1) % images.length);
-    }, 5000);
-
-    return () => clearInterval(interval);
-  }, []);
+  const imageIndex = [2];
 
   return (
     <>

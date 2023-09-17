@@ -8,6 +8,8 @@ import Campaign from "./Pages_Mui/Campaign";
 import ApplyOnline from "./Pages_Mui/Apply-Online";
 import FooterComponent from "./Pages_Mui/Footer";
 import MobileNavbar from "./Pages_Mui/Navigation/MobileNavBar";
+import TermsAndConditions from "./Pages_Mui/Terms_and_Conditions";
+
 
 const App = () => {
   return (
@@ -26,6 +28,7 @@ const App = () => {
         <Route path="/contact-us" element={<Contact />} />
         <Route path="/campaign" element={<Campaign />} />
         <Route path="/apply-online" element={<ApplyOnline />} />
+        <Route path="/terms" element={<TermsAndConditions/>} />
       </Routes>
       <FooterComponent />
     </>

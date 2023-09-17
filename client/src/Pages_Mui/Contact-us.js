@@ -5,7 +5,10 @@ import { motion } from "framer-motion";
 import companyAddress from "./Content/companyInfo";
 import { useFormik } from "formik";
 import * as yup from "yup";
+import emailjs from "@emailjs/browser";
 import { toast } from "react-toastify";
+import { useRef } from "react";
+
 const Container = styled("div")({
   display: "flex",
   justifyContent: "space-between",
@@ -30,35 +33,65 @@ const Form = styled(motion.form)({
   flexDirection: "column",
 });
 
-const validateSchema= yup.object().shape({
-  firstname: yup.string("this filed must be filled").required("please fill in this field "),
-      surname:yup.string("this field must be filled").required("Surname must be filed"),
-      email:yup.string("This email must be field").required("please fill in this email field"),
-      message:yup.string("message must be field").required(" fill in your message. "),
-
-})
+const validateSchema = yup.object().shape({
+  firstname: yup
+    .string("this filed must be filled")
+    .required("please fill in this field "),
+  surname: yup
+    .string("this field must be filled")
+    .required("Surname must be filed"),
+  email: yup
+    .string("This email must be field")
+    .required("please fill in this email field"),
+  message: yup
+    .string("message must be field")
+    .required(" fill in your message. "),
+});
 
 export default function Contact() {
+  const form = useRef();
   // const handleSubmit = (values) => {
   //  console.log(values);
   //   // Handle form submission
+  // };
+  // const sendEmail = (e) => {
+  //   e.preventDefault();
+
+  //   emailjs
+  //     .sendForm("service_ts5kxoj", "template_dnljrtb", form.current,"U0N4YArhKR9Z25sU4")
+  //     .then(
+  //       (result) => {
+  //         console.log(result.text);
+  //       },
+  //       (error) => {
+  //         console.log(error.text);
+  //       }
+  //     );
   // };
 
   const formik = useFormik({
     initialValues: {
       firstname: "",
-      surname:"",
+      surname: "",
       email: "",
       message: "",
     },
-    
-    validationSchema:validateSchema,
+
+    validationSchema: validateSchema,
     onSubmit: (values) => {
       console.log(values);
-      // Handle form submission
-      toast(
-        'wait for our messages'
-      )
+      emailjs
+      .sendForm("service_1f2e68h", "template_55e1gjw", form.current,"EUIxvum5d5lPZp-gH")
+      .then(
+        (result) => {
+          console.log(result.text);
+        },
+        (error) => {
+          console.log(error.text);
+        }
+      );
+        toast.success("Message  Success");
+      
     },
   });
 
@@ -79,6 +112,7 @@ export default function Contact() {
         </Column>
         <Column>
           <Form
+            ref={form}
             onSubmit={formik.handleSubmit}
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
@@ -91,10 +125,12 @@ export default function Contact() {
               margin="dense"
               onChange={formik.handleChange}
               required
-              error={formik.touched.firstname && Boolean(formik.errors.firstname)}
+              error={
+                formik.touched.firstname && Boolean(formik.errors.firstname)
+              }
               helperText={formik.touched.firstname && formik.errors.firstname}
             />
-             <TextField
+            <TextField
               label="Surname"
               name="surname"
               variant="outlined"
